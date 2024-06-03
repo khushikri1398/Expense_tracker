@@ -41,7 +41,7 @@
 
             <div class="input_field">
                 <label>Email Address</label>
-                <input type="text" class="input" name="email">
+                <input type="text" class="input" name="email" required>
             </div>
             <div class="input_field">
                 <label>Phone no</label>
