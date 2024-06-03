@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html>
 <head>
     <title>Display</title>
@@ -14,6 +17,19 @@
 <?php
 include("connection.php");
 error_reporting(0);
+
+$userprofile=$_SESSION['username'];
+
+if($userprofile== true)
+{
+
+}
+else
+{
+    ?>
+        <meta http-equiv = "refresh" content = "0; url = http://localhost/project/login.php"/>
+    <?php
+}
 
 $query="SELECT * FROM signup";
 $data=mysqli_query($con,$query);
@@ -53,4 +69,5 @@ else{
 ?>
 </table>
 </center>
+<a href="logout.php"><input type="submit" name="" value="logout" style="background:violet; color:white; height: 35px; width: 100px; margin-top=20px; font-size=18px; border:0; border-radius:5px;cursor:pointer"></a>
 </html>

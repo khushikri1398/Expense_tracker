@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,9 +47,10 @@
         $total=mysqli_num_rows($data);
         //echo $total;
         if($total==1){
+            $_SESSION['username']=$username;
             //echo "login success.";
             ?>
-    <meta http-equiv = "refresh" content = "0; url = http://localhost/project/display.php"/>
+                <meta http-equiv = "refresh" content = "0; url = http://localhost/project/display.php"/>
             <?php
         }
         else{
