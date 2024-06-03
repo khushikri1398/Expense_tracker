@@ -1,0 +1,74 @@
+*
+{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+    background-color:lavender;
+    padding:0 10px;
+}
+.container{
+    max-width: 500px;
+    width:100%;
+    background-color: white;
+    margin: 20px auto ;
+    padding:30px;
+    box-shadow: 5px 5px 5px rgba(red, green, blue, alpha);
+}
+.container .title
+{
+    color:purple;
+    font-size: 24px;
+    font-weight: 1000;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.container .Title
+{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+    color:rgb(90, 87, 90);
+}
+.container .form .input_field{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.container .form .input_field label{
+    width: 200px;
+    margin-right: 10px;
+}
+.container .form .input_field .input{
+    width: 100%;
+    outline: none;
+    background-color:3px solid lavender;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.container .form .input_field .input:focus{
+    border: 2px solid purple;
+}
+
+.container .form .input_field select:focus{
+    border: 2px solid purple;
+}
+.container .form .input_field  .btn
+{
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    background-color: lavender;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.container .form .input_field  .btn:hover
+{
+    background-color: purple;
+}
