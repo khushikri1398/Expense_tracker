@@ -10,7 +10,7 @@
     <?php include 'header.php'; ?>
     <main>
         <div class="intro">
-            <h2> Expense Tracker</h2>
+            <h2>Welcome to Expense Tracker</h2>
             <p>Track your expenses effortlessly and manage your finances better.</p>
         </div>
         <div class="buttons">
