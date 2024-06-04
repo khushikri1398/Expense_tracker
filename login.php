@@ -51,7 +51,7 @@
             //echo "login success.";
             echo "<script>alert(' login success.');</script>";
             ?>
-                <meta http-equiv = "refresh" content = "0; url = http://localhost/project/display.php"/>
+                <meta http-equiv = "refresh" content = "0; url = http://localhost/project/dashboard.php"/>
             <?php
         }
         else{
