@@ -20,32 +20,32 @@
         <div class="form">
             <div class="input_field">
                 <label>First Name</label>
-                <input type="text" class="input" name="fname" required>
+                <input type="text" class="input" name="fname" placeholder="firstname" required>
             </div>
 
             <div class="input_field">
                 <label>Last Name</label>
-                <input type="text" class="input" name="lname" required>
+                <input type="text" class="input" name="lname"  placeholder="lastname" required>
             </div>
 
             <div class="input_field">
                 <label>Password</label>
-                <input type="password" class="input" name="password" required>
+                <input type="password" class="input" name="password"  placeholder="password"required>
             </div>
 
             <div class="input_field">
                 <label>Confirm password</label>
-                <input type="password" class="input" name="conpassword" required>
+                <input type="password" class="input" name="conpassword" placeholder="confirm password" required>
             </div>
 
 
             <div class="input_field">
                 <label>Email Address</label>
-                <input type="text" class="input" name="email" required>
+                <input type="email" class="input" name="email" placeholder="abc@gmail.com"  required>
             </div>
             <div class="input_field">
                 <label>Phone no</label>
-                <input type="text" class="input" name="phone" required>
+                <input type="text" class="input" name="phone" placeholder="+910000000000" required>
             </div>
 
         
