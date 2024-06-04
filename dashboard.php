@@ -12,6 +12,33 @@
         table{
             background-color: white;
         }
+        .container{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .dashboard-links{
+            display:flex ;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .link{
+            background-color: grey;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+        .link:hover {
+            background-color: #483d8b;
+        }
+        .logout
+        {
+            text-align: center;
+            margin-bottom: 14px;
+            margin-top: 4px;
+        }
     </style>
 </head>
 
@@ -33,7 +60,15 @@ else
     <?php
 }
 ?>
-<a href="logout.php"><input type="submit" name="" value="logout" style="background:violet; color:white; height: 35px; width: 100px; margin-top=20px; font-size=18px; border:0; border-radius:5px;cursor:pointer"></a>
+<div class="container">
+    <div class="dashboard-links">
+            <a href="expense.php" class="link">Expense</a>
+            <a href="expense_form.php" class="link">Add_Expense</a></div>
+    </div>
+</div>
+<div>
+    <div class="logout"><a href="logout.php" class="link">logout</a></div>
+</div>
 <?php
 include("footer.php");
 ?>

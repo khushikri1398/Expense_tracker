@@ -1,4 +1,5 @@
 <?php include ("connection.php");
+include ("header.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="index-style.css">
     <title>Sign Up</title>
     <script>
         function validateForm() {
@@ -26,7 +28,7 @@
                 Sign Up
             </div>
             <div class="Title">
-                Create a new account
+                <h6>create a new account</h6>
             </div>
             <div class="form">
                 <div class="input_field">
@@ -87,4 +89,5 @@ if (isset($_POST['register'])) {
         }
     }
 }
+include ("footer.php");
 ?>
