@@ -49,6 +49,7 @@
         if($total==1){
             $_SESSION['username']=$username;
             //echo "login success.";
+            echo "<script>alert(' login success.');</script>";
             ?>
                 <meta http-equiv = "refresh" content = "0; url = http://localhost/project/display.php"/>
             <?php
