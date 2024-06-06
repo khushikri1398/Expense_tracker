@@ -19,7 +19,7 @@ include("connection.php");
 
 error_reporting(0);
 
-$userprofile=$_SESSION['username'];
+$userprofile=$_SESSION['email'];
 
 /*if($userprofile== true)
 {

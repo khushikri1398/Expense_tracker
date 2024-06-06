@@ -39,6 +39,12 @@
             margin-bottom: 14px;
             margin-top: 4px;
         }
+        .img{
+            display: flex;
+            justify-content: center;
+            margin: 5px 5px;
+            padding-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -47,7 +53,7 @@ include("connection.php");
 include("header.php");
 error_reporting(0);
 
-$userprofile=$_SESSION['username'];
+$userprofile=$_SESSION['email'];
 
 if($userprofile== true)
 {
@@ -65,6 +71,9 @@ else
             <a href="expense.php" class="link">Expense</a>
             <a href="expense_form.php" class="link">Add_Expense</a></div>
     </div>
+</div>
+<div class= "img">
+    <img src="image.jpg" height="350" width="500">
 </div>
 <div>
     <div class="logout"><a href="logout.php" class="link">logout</a></div>

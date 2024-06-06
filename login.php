@@ -48,7 +48,7 @@
         $total=mysqli_num_rows($data);
         //echo $total;
         if($total==1){
-            $_SESSION['username']=$username;
+            $_SESSION['email']=$username;
             //echo "login success.";
             echo "<script>alert(' login success.');</script>";
             ?>

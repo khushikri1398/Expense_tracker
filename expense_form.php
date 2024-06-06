@@ -77,8 +77,7 @@ include("header.php");
 include("connection.php");
 error_reporting(0);
 
-$userprofile=$_SESSION['username'];
-
+$userprofile=$_SESSION['email'];
 if($userprofile== true)
 {
 
@@ -98,7 +97,7 @@ if (isset($_POST['register'])) {
     $date= $_POST['date'];
 
     if ($category!= "" && $amt != ""  && $desc!="" && $date!=="") {
-        $query = "INSERT INTO expense (category,amount,descr,date) VALUES ('$category', '$amt', '$desc', '$date')";
+        $query = "INSERT INTO expense (email,category,amount,descr,date) VALUES ('$userprofile','$category', '$amt', '$desc', '$date')";
         $data = mysqli_query($con, $query);
 
         if ($data) {

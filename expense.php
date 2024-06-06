@@ -60,8 +60,10 @@
 include("connection.php");
 include("header.php");
 error_reporting(0);
-
-$userprofile=$_SESSION['username'];
+?>
+<div class="dashboard"><a href="dashboard.php" class="link"><input type='submit' value='Dashboard'></a></div>
+<?php
+$userprofile=$_SESSION['email'];
 
 if($userprofile == true) {
 
@@ -71,7 +73,7 @@ if($userprofile == true) {
     <?php
 }
 
-$query = "SELECT * FROM expense";
+$query = "SELECT * FROM expense WHERE email='$userprofile' ";
 $data = mysqli_query($con, $query);
 
 $total = mysqli_num_rows($data);
@@ -79,7 +81,6 @@ $total = mysqli_num_rows($data);
 if ($total != 0) {
     ?>
     <h2 align="center">Displaying all Expenses</h2>
-    <div class="dashboard"><a href="dashboard.php" class="link"><input type='submit' value='Dashboard'></a></div>
     <center>
     <table border="3px" cellspacing="7" width="50%">
         <tr>
@@ -105,7 +106,7 @@ if ($total != 0) {
         </tr>";
     }
 } else {
-    echo "no records found";
+    echo "<script>alert('No record Found');</script>";
 }
 ?>
 </table>
