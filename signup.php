@@ -41,11 +41,11 @@ include ("header.php");
                 </div>
                 <div class="input_field">
                     <label>Password</label>
-                    <input type="password" class="input" name="password" placeholder="Password" required>
+                    <input type="password" class="input" name="password" placeholder="Enter your password" required>
                 </div>
                 <div class="input_field">
                     <label>Confirm Password</label>
-                    <input type="password" class="input" name="conpassword" placeholder="Confirm Password" required>
+                    <input type="password" class="input" name="conpassword" placeholder="Confirm your password" required>
                 </div>
                 <div class="input_field">
                     <label>Email Address</label>

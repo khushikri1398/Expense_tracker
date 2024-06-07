@@ -49,7 +49,14 @@ include("header.php");
             <div class="form">
                 <div class="input_field">
                     <label>Category</label>
-                    <input type="text" class="input" name="category" required>
+                    <select class="input" name="category" required>
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Food">Food</option>
+                        <option value="Education">Education</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Others">Others</option>
+                    </select>
                 </div>
                 <div class="input_field">
                     <label>Amount</label>
