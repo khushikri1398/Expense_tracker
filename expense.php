@@ -53,6 +53,19 @@
         .delete:hover {
             background-color:crimson;
         }
+        .dashboard-links{
+            display:flex ;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .lnk{
+            background-color:palevioletred;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
     </style>
 </head>
 
@@ -72,7 +85,13 @@ if($userprofile == true) {
     <meta http-equiv = "refresh" content = "0; url = http://localhost/project/index.php"/>
     <?php
 }
-
+?>
+<div class="container">
+    <div class="dashboard-links">
+            <a href="expense_fetch.php" class="lnk">Expense Summary</a></div>
+    </div>
+</div>
+<?php
 $query = "SELECT * FROM expense WHERE email='$userprofile' ";
 $data = mysqli_query($con, $query);
 
