@@ -1,6 +1,63 @@
-<?php include ("connection.php");
-include ("header.php");
+<?php
+include("connection.php");
+include("header.php");
+
+// Ensure the connection is established
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_POST['register'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $pwd = $_POST['password'];
+    $cpwd = $_POST['conpassword'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+
+    if ($pwd != $cpwd) {
+        echo "<script>alert('Password and confirm password both should be same');</script>";
+    } else if (strlen($phone) != 10) {
+        echo "<script>alert('Phone number must be exactly 10 digits');</script>";
+    } else {
+        if ($fname != "" && $lname != "" && $pwd != "" && $email != "" && $phone != "") {
+            $emailCheckQuery = "SELECT * FROM signup WHERE email = ?";
+            $stmt = $con->prepare($emailCheckQuery);
+            $stmt->bind_param("s", $email); // Bind the email parameter
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                echo "<script>alert('Email already exists, please use a different email');</script>";
+            } else {
+                $insertQuery = "INSERT INTO signup (fname, lname, pass, conpassword, email, phone) VALUES (?, ?, ?, ?, ?, ?)";
+                $stmt = $con->prepare($insertQuery);
+                $stmt->bind_param("ssssss", $fname, $lname, $pwd, $cpwd, $email, $phone);
+
+                if ($stmt->execute()) {
+                    echo "<script>alert('Signup Success, please login');</script>";
+                    header('Location: login.php');
+                    exit();
+                } else {
+                    echo "<script>alert('Failed to insert data: " . $stmt->error . "');</script>";
+                }
+
+                $stmt->close();
+            }
+        } else {
+            echo "<script>alert('All fields are required');</script>";
+        }
+    }
+}
+/*
+? is a placeholder for the email parameter to be safely inserted.
+"s" indicates that the parameter is a string.
+bind_param method securely binds the user-provided email to the query, preventing SQL injection.
+"ssssss" indicates that all six parameters are strings.
+Securely binds the user-provided data to the query.
+*/
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +70,18 @@ include ("header.php");
         function validateForm() {
             var pwd = document.forms["signupForm"]["password"].value;
             var cpwd = document.forms["signupForm"]["conpassword"].value;
+            var phone = document.forms["signupForm"]["phone"].value;
+
             if (pwd != cpwd) {
-                alert("password and confirm password both should be same.");
+                alert("Password and confirm password both should be same.");
                 return false;
             }
+
+            if (phone.length != 10) {
+                alert("Phone number must be exactly 10 digits.");
+                return false;
+            }
+
             return true;
         }
     </script>
@@ -40,20 +105,20 @@ include ("header.php");
                     <input type="text" class="input" name="lname" placeholder="Last Name" required>
                 </div>
                 <div class="input_field">
-                    <label>Password</label>
-                    <input type="password" class="input" name="password" placeholder="Enter your password" required>
-                </div>
-                <div class="input_field">
-                    <label>Confirm Password</label>
-                    <input type="password" class="input" name="conpassword" placeholder="Confirm your password" required>
+                    <label>Phone No</label>
+                    <input type="text" class="input" name="phone" placeholder="1234567890" required>
                 </div>
                 <div class="input_field">
                     <label>Email Address</label>
                     <input type="email" class="input" name="email" placeholder="abc@gmail.com" required>
                 </div>
                 <div class="input_field">
-                    <label>Phone No</label>
-                    <input type="text" class="input" name="phone" placeholder="+910000000000" required>
+                    <label>Password</label>
+                    <input type="password" class="input" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input_field">
+                    <label>Confirm Password</label>
+                    <input type="password" class="input" name="conpassword" placeholder="Confirm your password" required>
                 </div>
                 <div class="input_field">
                     <input type="submit" value="Sign Up" class="btn" name="register">
@@ -64,30 +129,6 @@ include ("header.php");
     </div>
 </body>
 </html>
-
 <?php
-if (isset($_POST['register'])) {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $pwd = $_POST['password'];
-    $cpwd = $_POST['conpassword'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-
-    if ($pwd != $cpwd) {
-        echo "<script>alert('password and confirm password both should be same');</script>";
-    } else {
-        if ($fname != "" && $lname != "" && $pwd != "" && $cpwd!="" && $email != "" && $phone != "") {
-            $query = "INSERT INTO signup (fname, lname, pass,conpassword, email, phone) VALUES ('$fname', '$lname', '$pwd', '$cpwd','$email', '$phone')";
-            $data = mysqli_query($con, $query);
-
-            if ($data) {
-                echo "<script>alert('Signup Success, please login');</script>";
-            } else {
-                echo "<script>alert('Failed to insert data');</script>";
-            }
-        }
-    }
-}
-include ("footer.php");
+include("footer.php");
 ?>

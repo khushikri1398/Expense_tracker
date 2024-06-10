@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <html>
 <head>
     <title>dashboard</title>
@@ -61,9 +58,7 @@ if($userprofile== true)
 }
 else
 {
-    ?>
-        <meta http-equiv = "refresh" content = "0; url = http://localhost/project/index.php"/>
-    <?php
+    header('Location: index.php');
 }
 ?>
 <div class="container">

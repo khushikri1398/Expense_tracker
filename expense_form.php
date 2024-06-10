@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include("connection.php"); 
 include("header.php"); 
 ?>
@@ -81,7 +80,6 @@ include("header.php");
 </html>
 
 <?php
-include("connection.php");
 error_reporting(0);
 
 $userprofile=$_SESSION['email'];
@@ -91,9 +89,7 @@ if($userprofile== true)
 }
 else
 {
-    ?>
-        <meta http-equiv = "refresh" content = "0; url = http://localhost/project/index.php"/>
-    <?php
+    header('Location: index.php');
 }
 ?>
 <?php
@@ -109,6 +105,7 @@ if (isset($_POST['register'])) {
 
         if ($data) {
             echo "<script>alert('expense added');</script>";
+            header('Location: expense.php');
         } else {
             echo "<script>alert('Failed to insert data');</script>";
         }

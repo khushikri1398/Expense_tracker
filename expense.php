@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <head>
     <title>Expense</title>
     <link rel="stylesheet" href="index-style.css">
@@ -81,9 +78,7 @@ $userprofile=$_SESSION['email'];
 if($userprofile == true) {
 
 } else {
-    ?>
-    <meta http-equiv = "refresh" content = "0; url = http://localhost/project/index.php"/>
-    <?php
+    header('Location: index.php');
 }
 ?>
 <div class="container">

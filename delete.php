@@ -6,9 +6,7 @@ $data=mysqli_query($con,$query);
 if($data)
 {
     echo "<script>alert('expense deleted');</script>";
-    ?>
-    <meta http-equiv = "refresh" content = "0; url = http://localhost/project/expense.php"/>
-    <?php
+    header('Location: expense.php');
 }
 else
 {

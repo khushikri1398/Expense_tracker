@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include ("header.php");
 ?>
 <!DOCTYPE html>
@@ -51,9 +50,7 @@
             $_SESSION['email']=$username;
             //echo "login success.";
             echo "<script>alert(' login success.');</script>";
-            ?>
-                <meta http-equiv = "refresh" content = "0; url = http://localhost/project/dashboard.php"/>
-            <?php
+            header('Location: dashboard.php');
         }
         else{
            //echo "login failed";

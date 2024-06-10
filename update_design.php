@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include("connection.php"); 
 include("header.php"); 
 $id= $_GET['id'];
@@ -79,8 +78,6 @@ $result=mysqli_fetch_assoc($data);
 </html>
 
 <?php
-include("connection.php");
-error_reporting(0);
 
 $userprofile=$_SESSION['email'];
 
