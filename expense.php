@@ -120,7 +120,7 @@ if ($total != 0) {
         </tr>";
     }
 } else {
-    echo "<script>alert('No record Found');</script>";
+    //echo "<script>alert('No record Found');</script>";
 }
 ?>
 </table>

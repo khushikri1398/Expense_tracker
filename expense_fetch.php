@@ -32,25 +32,6 @@
         .logout a input:hover {
             background-color: red;
         }
-        .update, .delete {
-            background-color:green;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            height: 30px;
-            font-weight: bold;
-        }
-        .update:hover {
-            background-color: slateblue;
-        }
-        .delete {
-            background-color:red;
-        }
-        .delete:hover {
-            background-color:crimson;
-        }
         .dashboard-links {
             display: flex;
             justify-content: center;
@@ -108,7 +89,7 @@ $monthly_expense = $row_monthly['monthly_expense'] ? $row_monthly['monthly_expen
 
 $query_category = "SELECT category, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' GROUP BY category";
 $result_category = mysqli_query($con, $query_category);
-
+//GROUP BY is used to group rows that have the same values in specified columns into aggregated data. Here, it groups the rows by the category column.
 $query_yearly = "SELECT YEAR(date) as year, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' GROUP BY YEAR(date)";
 $result_yearly = mysqli_query($con, $query_yearly);
 
@@ -170,12 +151,23 @@ $result_monthly_all = mysqli_query($con, $query_monthly_all);
 </center>
 <h4 align="center">Expense summary on basis of categories</h4>
 <center>
-    <table border="1" cellspacing="7" width="50%">
+    <select id="categoryFilter" onchange="filterCategory()">
+        <option value="all">All Categories</option>
+        <?php
+        mysqli_data_seek($result_category, 0); // This line resets the result set pointer to the beginning of the result set, ensuring that subsequent fetch operations start from the first row.
+        while ($row_category_option = mysqli_fetch_assoc($result_category)) {
+            echo "<option value='" . $row_category_option['category'] . "'>" . $row_category_option['category'] . "</option>";
+        }// Inside the loop, it echoes an <option> element for each category, with the category name set as both the option's value and its displayed text.
+        //It's used twice because the value attribute (value='...') and the displayed text (<option>...</option>) of the <option> tag can be different.
+        ?>
+    </select>
+    <table border="1" cellspacing="7" width="50%" id="categoryTable">
         <tr>
             <th>Category</th>
             <th>Total Amount</th>
         </tr>
         <?php
+        mysqli_data_seek($result_category, 0); // Reset result set pointer
         while ($row_category = mysqli_fetch_assoc($result_category)) {
             echo "<tr>
                 <td>" . $row_category['category'] . "</td>
@@ -194,4 +186,29 @@ $total = mysqli_num_rows($data);
 <?php
 include("footer.php");
 ?>
+<script>
+    function filterCategory() {
+        var dropdown = document.getElementById("categoryFilter");
+        //This line gets the HTML element with the ID categoryFilter (likely a <select> dropdown) and assigns it to the variable dropdown
+        //This dropdown is used to select the category by which the table should be filtered
+        var table = document.getElementById("categoryTable");
+        //This line gets the HTML element with the ID categoryTable (likely a <table>) and assigns it to the variable table. This is the table that will be filtered.
+        var rows = table.getElementsByTagName("tr");
+        //This line gets all the <tr> (table row) elements within the categoryTable and assigns them to the variable rows
+        var selectedCategory = dropdown.value;
+        //This line gets the value of the selected option from the dropdown and assigns it to the variable selectedCategory
+
+        for (var i = 1; i < rows.length; i++) {
+            var categoryCell = rows[i].getElementsByTagName("td")[0];
+            if (categoryCell) {
+                var category = categoryCell.textContent || categoryCell.innerText;
+                if (selectedCategory === "all" || category === selectedCategory) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 </html>
