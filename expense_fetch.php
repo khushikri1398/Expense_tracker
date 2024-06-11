@@ -90,11 +90,13 @@ if ($userprofile == true) {
 </div>
 <?php
 $query_daily = "SELECT SUM(amount) as daily_expense FROM expense WHERE email='$userprofile' AND DATE(date) = CURDATE()";
+// Retrieves the total sum (SUM(amount)) of expenses for the current day (CURDATE()) for the user.
 $result_daily = mysqli_query($con, $query_daily);
 $row_daily = mysqli_fetch_assoc($result_daily);
 $daily_expense = $row_daily['daily_expense'] ? $row_daily['daily_expense'] : 0;
 
 $query_weekly = "SELECT SUM(amount) as weekly_expense FROM expense WHERE email='$userprofile' AND YEARWEEK(date, 1) = YEARWEEK(CURDATE(), 1)";
+//Ensures that weeks are numbered consistently, with Monday as the start of the week.
 $result_weekly = mysqli_query($con, $query_weekly);
 $row_weekly = mysqli_fetch_assoc($result_weekly);
 $weekly_expense = $row_weekly['weekly_expense'] ? $row_weekly['weekly_expense'] : 0;

@@ -1,6 +1,3 @@
-<?php
-    include ("header.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +34,7 @@
 
 <?php
     include("connection.php");
+    include("header.php");
     if(isset($_POST['login'])){
         $username=$_POST['username'];
         $pwd=$_POST['password'];
