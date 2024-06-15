@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>dashboard</title>
-    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="css/index-style.css">
     <style>
         body{
             background-color: lavender;
@@ -68,7 +68,7 @@ else
     </div>
 </div>
 <div class= "img">
-    <img src="image.jpg" height="350" width="500">
+    <img src="images/image.jpg" height="350" width="500">
 </div>
 <div>
     <div class="logout"><a href="logout.php" class="link">logout</a></div>

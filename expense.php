@@ -1,6 +1,6 @@
 <head>
     <title>Expense</title>
-    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="css/index-style.css">
     <style>
         body {
             background-color: lavender;
