@@ -2,7 +2,6 @@
 include("connection.php");
 include("header.php");
 
-// Ensure the connection is established
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
