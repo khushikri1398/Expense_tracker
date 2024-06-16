@@ -24,17 +24,13 @@ include("header.php");
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            background-color: rosybrown;
         }
-        .dashboard a
-        {
-            background-color:lightseagreen;
+        .dashboard a:hover {
+            background-color: blueviolet;
         }
-        .logout a
-        {
-            background-color: lightcoral;
-        }
-        .dashboard a:hover, .logout a:hover {
-            background-color: seagreen;
+        .logout a:hover{
+            background-color: red;
         }
     </style>
 </head>

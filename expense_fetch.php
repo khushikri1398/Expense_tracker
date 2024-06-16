@@ -5,55 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Summary</title>
     <link rel="stylesheet" href="CSS/index-style.css">
+    <link rel="stylesheet" href="CSS/style_main.css">
     <script src="js/script.js"></script>
-    <style>
-        body {
-            background-color: lavender;
-            font-family: Arial, sans-serif;
-        }
-        table {
-            background-color: white;
-        }
-        .dashboard, .logout {
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-        .dashboard a, .logout a {
-            text-decoration: none;
-        }
-        .dashboard a input, .logout a input {
-            padding: 10px 20px;
-            background-color: rosybrown;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .dashboard a input:hover {
-            background-color: blueviolet;
-        }
-        .logout a input:hover {
-            background-color: red;
-        }
-        .dashboard-links {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .lnk {
-            background-color: palevioletred;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 0 10px;
-        }
-        .lnk:hover {
-            background-color: #483d8b;
-        }
-    </style>
 </head>
 <body>
 <?php

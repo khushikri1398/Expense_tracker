@@ -1,69 +1,7 @@
 <head>
     <title>Expense</title>
     <link rel="stylesheet" href="CSS/index-style.css">
-    <style>
-        body {
-            background-color: lavender;
-        }
-        table {
-            background-color: white;
-        }
-        .dashboard, .logout {
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-        .dashboard a, .logout a {
-            text-decoration: none;
-        }
-        .dashboard a input, .logout a input {
-            padding: 10px 20px;
-            background-color:rosybrown;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .dashboard a input:hover{
-            background-color: blueviolet;
-        }
-        .logout a input:hover {
-            background-color: red;
-        }
-        .update, .delete {
-            background-color:green;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            height: 30px;
-            font-weight: bold;
-        }
-        .update:hover {
-            background-color: slateblue;
-        }
-        .delete {
-            background-color:red;
-        }
-        .delete:hover {
-            background-color:crimson;
-        }
-        .dashboard-links{
-            display:flex ;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-        .lnk{
-            background-color:palevioletred;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 0 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/style_main.css">
 </head>
 
 <?php
