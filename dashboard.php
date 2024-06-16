@@ -1,8 +1,9 @@
 <html>
 <head>
     <title>dashboard</title>
-    <link rel="stylesheet" href="css/index-style.css">
-    <style>
+    <link rel="stylesheet" href="CSS/index-style.css">
+    <link rel="stylesheet" href="CSS/style_main.css">
+    <!--<style>
         body{
             background-color: lavender;
         }
@@ -19,7 +20,7 @@
             justify-content: space-around;
             margin: 20px 0;
         }
-        .link{
+        .lnk{
             background-color:palevioletred;
             color: white;
             padding: 10px 20px;
@@ -27,7 +28,7 @@
             border-radius: 5px;
             margin: 0 10px;
         }
-        .link:hover {
+        .lnk:hover {
             background-color: #483d8b;
         }
         .logout
@@ -42,7 +43,7 @@
             margin: 5px 5px;
             padding-bottom: 15px;
         }
-    </style>
+    </style>-->
 </head>
 
 <?php
@@ -63,15 +64,15 @@ else
 ?>
 <div class="container">
     <div class="dashboard-links">
-            <a href="expense.php" class="link">Expense</a>
-            <a href="expense_form.php" class="link">Add_Expense</a></div>
+            <a href="expense.php" class="lnk">Expense</a>
+            <a href="expense_form.php" class="lnk">Add_Expense</a></div>
     </div>
 </div>
 <div class= "img">
     <img src="images/image.jpg" height="350" width="500">
 </div>
 <div>
-    <div class="logout"><a href="logout.php" class="link">logout</a></div>
+    <div class="logout"><a href="logout.php" class="lnk">logout</a></div>
 </div>
 <?php
 include("footer.php");
