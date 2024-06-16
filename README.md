@@ -1,3 +1,7 @@
+Sure! Here's the updated README with the IDE included:
+
+---
+
 # Expense Tracker
 
 This is a web-based application for tracking and summarizing expenses. It provides an overview of daily, weekly, and monthly expenses, and displays expense summaries by categories and dates.
@@ -18,15 +22,12 @@ Expense Tracker is designed to help individuals and businesses manage their fina
 ## Technology Stack
 
 - **Frontend:**
-  - HTML5
-  - CSS3
+  - HTML
+  - CSS
   - JavaScript
-  - Chart.js (for graphs and charts)
-
+  
 - **Backend:**
   - PHP
 
 - **Database:**
   - MySQL
-- **IDE Used
-  - Visual Studio Code
