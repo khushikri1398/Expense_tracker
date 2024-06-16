@@ -25,9 +25,15 @@ Expense Tracker is designed to help individuals and businesses manage their fina
   - HTML
   - CSS
   - JavaScript
-  
+
 - **Backend:**
   - PHP
 
 - **Database:**
   - MySQL
+
+- **Server:**
+  - Apache (or any compatible web server)
+
+- **IDE:**
+  - Visual Studio Code
