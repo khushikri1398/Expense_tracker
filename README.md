@@ -1,6 +1,4 @@
-Sure! Here's the enhanced README with a description included:
 
----
 
 # Expense Tracker
 
