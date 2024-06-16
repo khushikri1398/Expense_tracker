@@ -26,7 +26,7 @@
     <script>
         function message()
         {
-            alert("to password yad kr lo yrr.")
+            alert("Remember your password atleast.")
         }
     </script>
 </body>
