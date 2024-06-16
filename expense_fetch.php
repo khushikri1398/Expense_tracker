@@ -128,7 +128,6 @@ $result_monthly_all = mysqli_query($con, $query_monthly_all);
             echo "<option value='" . $row_category_option['category'] . "'>" . $row_category_option['category'] . "</option>";
         }
         // Inside the loop, it echoes an <option> element for each category, with the category name set as both the option's value and its displayed text.
-        //It's used twice because the value attribute (value='...') and the displayed text (<option>...</option>) of the <option> tag can be different.
         ?>
     </select>
     <select id="sortOrderCategory" onchange="sortCategoryTable()">

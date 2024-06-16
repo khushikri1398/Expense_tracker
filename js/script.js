@@ -8,10 +8,10 @@ function filterCategory() {
         var categoryCell = rows[i].getElementsByTagName("td")[0];
         //The first <td> element of the current row is assigned to the variable categoryCell.
         if (categoryCell) {
-            var category = categoryCell.textContent || categoryCell.innerText;
+            var category = categoryCell.textContent;
             if (selectedCategory === "all" || category === selectedCategory) {
                 rows[i].style.display = "";
-//An empty string for the display property means that the row will revert to its default display value.
+                //An empty string for the display property means that the row will revert to its default display value.
             } else {
                 rows[i].style.display = "none";
             }
@@ -40,15 +40,14 @@ function sortTable(tableId, sortOrderId, columnIdx) {
     //.value: Gets the selected value (either "asc" for ascending or "desc" for descending).
 
     var sortedRows = Array.prototype.slice.call(rows, 1).sort(function(a, b)//a and b, which represent two rows being compared during the sort operation.
-    //Array.prototype.slice is used to convert the rows HTMLCollection into a true array.
+    //Array.prototype.slice is used to convert the rows HTMLCollection into a true array, starting from the second row. 
     {
-        var aAmount = parseFloat(a.cells[columnIdx].textContent || a.cells[columnIdx].innerText);
-        var bAmount = parseFloat(b.cells[columnIdx].textContent || b.cells[columnIdx].innerText);
+        var aAmount = parseFloat(a.cells[columnIdx].textContent);
+        var bAmount = parseFloat(b.cells[columnIdx].textContent);
         return sortOrder === "asc" ? aAmount - bAmount : bAmount - aAmount;
     });
         //Converts the text content of the cell to a floating-point number, which is necessary for numeric comparison.
         //a and b are two rows being compared.
-        //aAmount and bAmount extract and convert the text content of the third cell (cells[2]) in each row a and b to a floating-point number
     for (var i = 0; i < sortedRows.length; i++) {
         table.appendChild(sortedRows[i]);
     }
