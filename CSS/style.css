@@ -16,33 +16,31 @@ body{
     padding:30px;
     box-shadow: 5px 5px 5px rgba(red, green, blue, alpha);
 }
-.container .title
-{
-    color:purple;
+.title {
+    text-align: center;
     font-size: 24px;
-    font-weight: 1000;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff;
 }
-.container .Title
-{
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
+
+.Title h5 {
     text-align: center;
-    color:rgb(90, 87, 90);
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: red;
 }
-.container .form .input_field{
+.form .input_field{
     margin-bottom: 15px;
     display: flex;
     align-items: center;
 }
-.container .form .input_field label{
+.form .input_field label{
     width: 200px;
     margin-right: 10px;
 }
-.container .form .input_field .input{
+.form .input_field .input{
     width: 100%;
     outline: none;
     background-color:3px solid lavender;
@@ -52,14 +50,14 @@ body{
     transition: all 0.5s;
 }
 
-.container .form .input_field .input:focus{
+.form .input_field .input:focus{
     border: 2px solid purple;
 }
 
-.container .form .input_field select:focus{
+.form .input_field select:focus{
     border: 2px solid purple;
 }
-.container .form .input_field  .btn
+.form .input_field  .btn
 {
     width: 100%;
     padding: 8px 10px;
@@ -68,7 +66,20 @@ body{
     cursor: pointer;
     border-radius: 3px;
 }
-.container .form .input_field  .btn:hover
+.form .input_field  .btn:hover
 {
     background-color: purple;
+}
+.signup {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup .link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup .link:hover {
+    text-decoration: underline;
 }

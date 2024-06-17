@@ -92,7 +92,7 @@ Securely binds the user-provided data to the query.
                 Sign Up
             </div>
             <div class="Title">
-                <h6>create a new account</h6>
+                <h5>Create a new account</h5>
             </div>
             <div class="form">
                 <div class="input_field">

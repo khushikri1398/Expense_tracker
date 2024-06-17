@@ -10,8 +10,8 @@
     <?php include 'header.php'; ?>
     <main>
         <div class="intro">
-            <h2>Welcome to Expense Tracker</h2>
-            <p>Track your expenses effortlessly and manage your finances better.</p>
+            <h2 style="color:red">Welcome to Expense Tracker</h2>
+            <p style="color:green">Track your expenses effortlessly and manage your finances better.</p>
         </div>
         <div class="buttons">
             <a href="signup.php" class="button">Sign Up</a>
