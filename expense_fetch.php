@@ -24,6 +24,7 @@ if ($userprofile == true) {
     <div class="dashboard-links">
         <a href="dashboard.php" class="lnk">Dashboard</a>
         <a href="expense.php" class="lnk">Expenses</a>
+        <a href="chart.php" class="lnk">Graphs </a>
     </div>
 </div>
 <?php
