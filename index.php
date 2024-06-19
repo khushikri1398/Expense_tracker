@@ -16,6 +16,7 @@
         <div class="buttons">
             <a href="signup.php" class="button">Sign Up</a>
             <a href="login.php" class="button">Login</a>
+            <a href="about.php" class="button">About</a>
         </div>
     </main>
     <?php include 'footer.php'; ?>
