@@ -72,7 +72,7 @@ if ($total != 0) {
     }
 </script>
     <div class="logout"><a href="logout.php" class="link"><input type='submit' value='Logout'></a></div>
-<footer class="footer" style="position :fixed">
+<footer class="footer">
     <p> Copyright @ Expense Tracer. All Rights Reserved | Contact Us: +9190000 00000</p>
 </footer>
 </html>
