@@ -21,7 +21,9 @@ if($userprofile == true) {
 ?>
 <div class="container">
     <div class="dashboard-links">
-            <a href="expense_fetch.php" class="lnk">Expense Summary</a></div>
+        <a href="expense_form.php" class="lnk">Add_Expense</a>
+        <a href="expense_fetch.php" class="lnk">Expenses Summary</a>
+        <a href="chart.php" class="lnk">Graphs </a>
     </div>
 </div>
 <?php
@@ -70,7 +72,7 @@ if ($total != 0) {
     }
 </script>
     <div class="logout"><a href="logout.php" class="link"><input type='submit' value='Logout'></a></div>
-<?php
-include("footer.php");
-?>
+<footer class="footer" style="position :fixed">
+    <p> Copyright @ Expense Tracer. All Rights Reserved | Contact Us: +9190000 00000</p>
+</footer>
 </html>

@@ -44,10 +44,9 @@ body {
     justify-content: space-between;
     gap: 20px;
 }
-
 .about {
-    background-color:rgb(65, 102, 100);
-    color:rgb(88, 40, 74);
+    background-color:rgb(99, 124, 123);
+    color:rgb(43, 28, 85);
     padding: 50px;
     flex: 1;
     max-width: 45%;

@@ -21,7 +21,7 @@
     <main class="main">
         <section class="content">
             <div class="about">
-                <h1 style="color:black">About Expense Tracker</h1>
+                <h1 style="color:#4a5917">About Expense Tracker</h1>
                 <h3>
                     This web-based application helps individuals and businesses manage their finances by tracking and summarizing expenses. Users can log their expenses, update, delete, categorize them, and view detailed summaries and charts to analyze spending habits. The application offers user authentication, data security, and a responsive interface for an efficient and user-friendly experience.
                 </h3>
