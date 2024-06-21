@@ -128,6 +128,6 @@ Securely binds the user-provided data to the query.
     </div>
 </body>
 </html>
-<?php
-include("footer.php");
-?>
+<footer class="footer" style="position :fixed">
+    <p> Copyright @ Expense Tracer. All Rights Reserved | Contact Us: +9190000 00000</p>
+</footer>

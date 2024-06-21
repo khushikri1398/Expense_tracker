@@ -12,6 +12,7 @@ body{
     width:400px;
     background-color: white;
     border-radius: 5px;
+    border:1px solid black;
 }
 .center h1{
     text-align: center;

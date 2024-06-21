@@ -114,9 +114,9 @@ while ($row_yearly = mysqli_fetch_assoc($result_yearly))
         </div>
     </div>
     
-    <div id="categoryChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
     <div id="monthlyChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
     <div id="yearlyChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
+    <div id="categoryChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
 
     <div class="logout"><a href="logout.php" class="link"><input type='submit' value='Logout'></a></div>
     <?php include("footer.php"); ?>
