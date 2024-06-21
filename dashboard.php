@@ -8,7 +8,6 @@
 <?php
 include("connection.php");
 include("header.php");
-error_reporting(0);
 
 $userprofile=$_SESSION['email'];
 

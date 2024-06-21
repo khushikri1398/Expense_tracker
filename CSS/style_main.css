@@ -37,6 +37,7 @@ table{
     justify-content: center;
     margin: 5px 5px;
     padding-bottom: 15px;
+    border: 1px solid black;
 }
 .dashboard, .logout {
     text-align: center;
