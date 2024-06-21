@@ -8,9 +8,6 @@
 include("connection.php");
 include("header.php");
 error_reporting(0);
-?>
-<div class="dashboard"><a href="dashboard.php" class="link"><input type='submit' value='Dashboard'></a></div>
-<?php
 $userprofile=$_SESSION['email'];
 
 if($userprofile == true) {
@@ -24,6 +21,7 @@ if($userprofile == true) {
         <a href="expense_form.php" class="lnk">Add_Expense</a>
         <a href="expense_fetch.php" class="lnk">Expenses Summary</a>
         <a href="chart.php" class="lnk">Graphs </a>
+        <a href="dashboard.php" class="lnk">Dashboard</a>
     </div>
 </div>
 <?php

@@ -21,13 +21,15 @@ else
 }
 ?>
 <div class="container">
-    <div class="dashboard-links">
-            <a href="expense.php" class="lnk">Expense</a>
-            <a href="expense_form.php" class="lnk">Add_Expense</a></div>
+        <div class="dashboard-links">
+            <a href="expense_form.php" class="lnk">Add Expenses</a>
+            <a href="expense.php" class="lnk">Expenses</a>
+            <a href="expense_fetch.php" class="lnk">Expenses Summary</a>
+            <a href="chart.php" class="lnk">Graphs</a>
+        </div>
     </div>
-</div>
 <div class= "img">
-    <img src="images/image.jpg" height="350" width="500">
+    <img src="images/dash.jpg" height="350" width="500">
 </div>
 <div>
     <div class="logout"><a href="logout.php" class="lnk">logout</a></div>
