@@ -4,7 +4,7 @@ This is a web-based application for tracking and summarizing expenses. It provid
 
 ## Description
 
-Expense Tracker is designed to help individuals and businesses manage their finances by keeping track of expenditures. The application allows users to log their expenses, categorize them, and view detailed summaries and charts to analyze their spending habits. With user authentication, data security, and a responsive interface, this tool ensures an efficient and user-friendly experience.
+Expense Tracker is designed to help individuals and businesses manage their finances by keeping track of expenditures. The application allows users to log,add,update, delete their expenses and categorize them, and view detailed summaries and charts to analyze their spending habits. With user authentication, data security, and a responsive interface, this tool ensures an efficient and user-friendly experience.
 
 ## Features
 
