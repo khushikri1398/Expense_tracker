@@ -103,9 +103,7 @@ if (isset($_POST['update'])) {
 
         if ($data) {
             echo "<script>alert('expense updated');</script>";
-            ?>
-                <meta http-equiv = "refresh" content = "0; url =http://localhost/project/expense.php"/>
-            <?php
+            header('Location: expense.php');
         } else {
             echo "<script>alert('Failed to update data');</script>";
         }
