@@ -29,4 +29,4 @@ Expense Tracker is designed to help individuals and businesses manage their fina
   - MySQL
     
 - **IDE:**
-  - Visual Studio Code
+  - https://code.visualstudio.com/download
