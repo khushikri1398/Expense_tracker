@@ -13,28 +13,8 @@ $result=mysqli_fetch_assoc($data);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <link rel="stylesheet" type="text/css" href="CSS/index-style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/form.css">
     <title>Update Expenses</title>
-    <style>
-        .dashboard, .logout {
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-        .dashboard a, .logout a {
-            text-decoration: none;
-            padding: 10px 20px;
-            background-color: rosybrown;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            display: inline-block;
-        }
-        .dashboard a:hover, .logout a:hover {
-            background-color: blueviolet;
-        }
-    </style>
 </head>
 <body>
     <div class="container">

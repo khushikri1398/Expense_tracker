@@ -9,30 +9,8 @@ include("header.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <link rel="stylesheet" type="text/css" href="CSS/index-style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/form.css">
     <title>Expense Form</title>
-    <style>
-        .dashboard, .logout {
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-        .dashboard a, .logout a {
-            text-decoration: none;
-            display: inline-block;
-            padding: 10px 20px;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: rosybrown;
-        }
-        .dashboard a:hover {
-            background-color: blueviolet;
-        }
-        .logout a:hover{
-            background-color: red;
-        }
-    </style>
 </head>
 <body>
     <div class="container">

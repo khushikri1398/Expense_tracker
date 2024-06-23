@@ -1,6 +1,12 @@
 body {
     background-color: lavender;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
@@ -51,4 +57,75 @@ body {
     position: fixed;
     left: 0;
     bottom: 0;
+}
+h2 {
+    color: red;
+}
+
+.update,
+.delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+    font-weight: bold;
+}
+
+.update {
+    background-color: green;
+}
+
+.update:hover {
+    background-color: slateblue;
+}
+
+.delete {
+    background-color: red;
+}
+
+.delete:hover {
+    background-color: crimson;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+select {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+h2, h4 {
+    color: #333;
+}
+h2 {
+    color: #3c3c65;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    color: #483d8b;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

@@ -8,47 +8,6 @@
     <link rel="stylesheet" href="CSS/index-style.css">
     <link rel="stylesheet" href="CSS/style_main.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: lavender;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .header {
-            background-color: #3c3c65;
-            color: lavender;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .navbar {
-            background-color: #3c3c65;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
-
-        .nav-link {
-            color: lavender;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .nav-link:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         .footer {
             background-color: #3c3c65;
             color: white;
@@ -57,37 +16,6 @@
             position: relative;
             bottom: 0;
             width: 100%;
-        }
-
-        h2 {
-            color: red;
-        }
-
-        .update,
-        .delete {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            height: 30px;
-            font-weight: bold;
-        }
-
-        .update {
-            background-color: green;
-        }
-
-        .update:hover {
-            background-color: slateblue;
-        }
-
-        .delete {
-            background-color: red;
-        }
-
-        .delete:hover {
-            background-color: crimson;
         }
     </style>
 </head>
