@@ -48,6 +48,51 @@ while ($row_daily = mysqli_fetch_assoc($result_daily)) {
     <link rel="stylesheet" href="CSS/index-style.css">
     <link rel="stylesheet" href="CSS/style_main.css">
     <script src="js/canvas.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lavender;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #3c3c65;
+            color: lavender;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #3c3c65;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .nav-link {
+            color: lavender;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: #3c3c65;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
     <script>
         window.onload = function () {
             var categoryChart = new CanvasJS.Chart("categoryChartContainer", {
@@ -126,21 +171,20 @@ while ($row_daily = mysqli_fetch_assoc($result_daily)) {
 </head>
 <body>
 
-<?php include("header.php"); ?>
-    <div class="container">
-        <div class="dashboard-links">
-            <a href="dashboard.php" class="lnk">Dashboard</a>
-            <a href="expense.php" class="lnk">Expenses</a>
-            <a href="expense_fetch.php" class="lnk">Expenses Summary</a>
-        </div>
-    </div>
+<header class="header">
+        <h1>Expense Tracker</h1>
+        <nav class="navbar">
+            <a class="nav-link" href="dashboard.php">Dashboard</a>
+            <a class="nav-link" href="expense.php">Expenses</a>
+            <a class="nav-link" href="expense_fetch.php">Expense Summary</a>
+            <a class="nav-link" href="logout.php">Logout</a>
+        </nav>
+    </header>
     
     <div id="dailyChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
     <div id="monthlyChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
     <div id="yearlyChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
     <div id="categoryChartContainer" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
-
-    <div class="logout"><a href="logout.php" class="link"><input type='submit' value='Logout'></a></div>
     <?php include("footer.php"); ?>
 </body>
 </html>
