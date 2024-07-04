@@ -57,7 +57,6 @@
         <center>
             <table border="3px" cellspacing="7" width="50%">
                 <tr>
-                    <th width="5%">id</th>
                     <th width="20%">category</th>
                     <th width="15%">amount</th>
                     <th width="20%">description</th>
@@ -68,7 +67,6 @@
 
                 while ($result = mysqli_fetch_assoc($data)) {
                     echo "<tr>
-                            <td>" . $result['id'] . "</td>
                             <td>" . $result['category'] . "</td>
                             <td>" . $result['amount'] . "</td>
                             <td>" . $result['descr'] . "</td>
