@@ -8,7 +8,6 @@ if (!$userprofile) {
     exit();
 }
 
-// Query for category expenses
 $query_category = "SELECT category, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' GROUP BY category ORDER BY total_amount DESC";
 $result_category = mysqli_query($con, $query_category);
 $category_expenses = array();
@@ -16,7 +15,6 @@ while ($row_category = mysqli_fetch_assoc($result_category)) {
     $category_expenses[] = array("label" => $row_category['category'], "y" => $row_category['total_amount']);
 }
 
-// Query for monthly expenses in the current year
 $current_year = date("Y");
 $query_monthly_all = "SELECT MONTH(date) as month, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' AND YEAR(date) = '$current_year' GROUP BY MONTH(date) ORDER BY month ASC";
 $result_monthly_all = mysqli_query($con, $query_monthly_all);
@@ -25,7 +23,6 @@ while ($row_monthly = mysqli_fetch_assoc($result_monthly_all)) {
     $monthly_expense[] = array("label" => $row_monthly['month'], "y" => $row_monthly['total_amount']);
 }
 
-// Query for yearly expenses
 $query_yearly = "SELECT YEAR(date) as year, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' GROUP BY YEAR(date) ORDER BY total_amount DESC";
 $result_yearly = mysqli_query($con, $query_yearly);
 $yearly_expense = array();
@@ -33,7 +30,6 @@ while ($row_yearly = mysqli_fetch_assoc($result_yearly)) {
     $yearly_expense[] = array("label" => $row_yearly['year'], "y" => $row_yearly['total_amount']);
 }
 
-// Query for daily expenses
 $current_date = date("Y-m-d");
 $query_daily = "SELECT category, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' AND DATE(date) = CURDATE() GROUP BY category ORDER BY total_amount DESC";
 $result_daily = mysqli_query($con, $query_daily);
@@ -42,7 +38,6 @@ while ($row_daily = mysqli_fetch_assoc($result_daily)) {
     $daily_expense[] = array("label" => $row_daily['category'], "y" => $row_daily['total_amount']);
 }
 
-// Query for daily expenses in the current month
 $first_day_of_month = date("Y-m-01");
 $last_day_of_month = date("Y-m-31");
 $query_daily_month = "
