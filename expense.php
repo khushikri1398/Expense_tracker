@@ -53,9 +53,8 @@
 
     if ($total != 0) {
         ?>
-        <h2 align="center">Displaying all Expenses</h2>
-        <center>
-            <table border="3px" cellspacing="7" width="50%">
+        <h2 style="text-align:center">Displaying all Expenses</h2>
+            <table cellspacing="7" width="50%">
                 <tr>
                     <th width="20%">category</th>
                     <th width="15%">amount</th>
@@ -80,7 +79,7 @@
     }
     ?>
         </table>
-    </center>
+    </>
     <script>
         function checkdelete() {
             return confirm('Are you sure you want to delete this expense?');

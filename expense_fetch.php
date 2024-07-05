@@ -80,7 +80,7 @@
     <h2 style="text-align: center;">Expense Summary</h2>
     <h4 style="text-align: center;">Expense summary on basis of dates</h4>
     <div style="text-align: center;">
-        <table border="1" cellspacing="7" width="50%">
+        <table cellspacing="7" width="50%">
             <tr>
                 <th>Daily Expense</th>
                 <th>Weekly Expense</th>
@@ -101,7 +101,7 @@
             <option value="desc">High to Low</option>
             <option value="asc">Low to High</option>
         </select>
-        <table border="1" cellspacing="7" width="50%" id="yearlyTable">
+        <table cellspacing="7" width="50%" id="yearlyTable">
             <tr>
                 <th>Date</th>
                 <th>Total Amount</th>
@@ -124,7 +124,7 @@
             <option value="desc">High to Low</option>
             <option value="asc">Low to High</option>
         </select>
-        <table border="1" cellspacing="7" width="50%" id="monthlyTable">
+        <table cellspacing="7" width="50%" id="monthlyTable">
             <tr>
                 <th>Month</th>
                 <th>Total Amount</th>
@@ -147,7 +147,7 @@
             <option value="desc">High to Low</option>
             <option value="asc">Low to High</option>
         </select>
-        <table border="1" cellspacing="7" width="50%" id="dailyallTable">
+        <table cellspacing="7" width="50%" id="dailyallTable">
             <tr>
                 <th>Year</th>
                 <th>Total Amount</th>
@@ -179,7 +179,7 @@
             <option value="desc">High to Low</option>
             <option value="asc">Low to High</option>
         </select>
-        <table border="1" cellspacing="7" width="50%" id="categoryTable">
+        <table cellspacing="7" width="50%" id="categoryTable">
             <tr>
                 <th>Category</th>
                 <th>Total Amount</th>
