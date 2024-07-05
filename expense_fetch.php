@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="CSS/style_main.css">
     <script src="js/script.js"></script>
 </head>
+
 <body>
     <?php
-    include("connection.php");
+    include ("connection.php");
     $userprofile = $_SESSION['email'];
 
     if ($userprofile == true) {
@@ -29,7 +31,6 @@
             <a class="nav-link" href="logout.php">Logout</a>
         </nav>
     </header>
-
 
     <?php
     $query_daily = "SELECT SUM(amount) as daily_expense FROM expense WHERE email='$userprofile' AND DATE(date) = CURDATE()";
@@ -53,9 +54,28 @@
     $query_yearly = "SELECT YEAR(date) as year, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' GROUP BY YEAR(date)";
     $result_yearly = mysqli_query($con, $query_yearly);
 
-    $query_monthly_all = "SELECT YEAR(date) as year, MONTH(date) as month, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' GROUP BY YEAR(date), MONTH(date) ORDER BY total_amount DESC";
+    $current_year = date("Y");
+    $query_monthly_all = "SELECT YEAR(date) as year, MONTH(date) as month, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' AND YEAR(date) = '$current_year' GROUP BY YEAR(date), MONTH(date) ORDER BY total_amount DESC";
     $result_monthly_all = mysqli_query($con, $query_monthly_all);
+
+    $first_day_of_month = date("Y-m-01");
+    $last_day_of_month = date("Y-m-31");
+    $query_daily_month = "
+    SELECT 
+        DATE(date) as expense_date, 
+        SUM(amount) as total_amount 
+    FROM 
+        expense 
+    WHERE 
+        email='$userprofile' 
+        AND DATE(date) BETWEEN '$first_day_of_month' AND '$last_day_of_month'
+    GROUP BY 
+        DATE(date) 
+    ORDER BY 
+        DATE(date) ASC";
+    $result_daily_month = mysqli_query($con, $query_daily_month);
     ?>
+
 
     <h2 align="center">Expense Summary</h2>
     <h4 align="center">Expense summary on basis of dates</h4>
@@ -74,7 +94,30 @@
         </table>
     </center>
 
-    <h4 align="center">Expense summary on basis of months</h4>
+    <h4 align="center">Expense summary for this month</h4>
+    <center>
+        <select id="sortOrderYearly" onchange="sortYearlyTable()">
+            <option value="" disabled selected hidden>Sort</option>
+            <option value="desc">High to Low</option>
+            <option value="asc">Low to High</option>
+        </select>
+        <table border="1" cellspacing="7" width="50%" id="yearlyTable">
+            <tr>
+                <th>Date</th>
+                <th>Total Amount</th>
+            </tr>
+            <?php
+            while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
+                echo "<tr>
+                    <td>" .$row_daily_month['expense_date'] . "</td>
+                    <td>" .$row_daily_month['total_amount'] . "</td>
+                </tr>";
+            }
+            ?>
+        </table>
+    </center>
+
+    <h4 align="center">Expense summary for <?php echo $current_year; ?></h4>
     <center>
         <select id="sortOrderMonthly" onchange="sortMonthlyTable()">
             <option value="" disabled selected hidden>Sort</option>
@@ -83,14 +126,12 @@
         </select>
         <table border="1" cellspacing="7" width="50%" id="monthlyTable">
             <tr>
-                <th>Year</th>
                 <th>Month</th>
                 <th>Total Amount</th>
             </tr>
             <?php
             while ($row_monthly_all = mysqli_fetch_assoc($result_monthly_all)) {
                 echo "<tr>
-                    <td>" . $row_monthly_all['year'] . "</td>
                     <td>" . $row_monthly_all['month'] . "</td>
                     <td>" . $row_monthly_all['total_amount'] . "</td>
                 </tr>";
@@ -101,12 +142,12 @@
 
     <h4 align="center">Expense summary on basis of years</h4>
     <center>
-        <select id="sortOrderYearly" onchange="sortYearlyTable()">
+        <select id="sortOrderdailyall" onchange="sortdailyallTable()">
             <option value="" disabled selected hidden>Sort</option>
             <option value="desc">High to Low</option>
             <option value="asc">Low to High</option>
         </select>
-        <table border="1" cellspacing="7" width="50%" id="yearlyTable">
+        <table border="1" cellspacing="7" width="50%" id="dailyallTable">
             <tr>
                 <th>Year</th>
                 <th>Total Amount</th>
@@ -155,7 +196,8 @@
         </table>
     </center>
     <?php
-    include("footer.php");
+    include ("footer.php");
     ?>
 </body>
+
 </html>

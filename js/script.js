@@ -32,6 +32,10 @@ function sortYearlyTable() {
     sortTable("yearlyTable", "sortOrderYearly", 1);
 }
 
+function sortdailyallTable() {
+    sortTable("dailyallTable", "sortOrderdailyall", 1);
+}
+
 function sortTable(tableId, sortOrderId, columnIdx) {
     var table = document.getElementById(tableId);
     var rows = table.getElementsByTagName("tr");
