@@ -146,7 +146,6 @@ h4 {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -180,5 +179,15 @@ h4 {
 
     .container {
         padding: 10px;
+    }
+    .sort-filter-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sort-filter-container label,
+    .sort-filter-container select {
+        margin: 10px 0;
     }
 }
