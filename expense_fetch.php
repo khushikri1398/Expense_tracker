@@ -12,7 +12,7 @@
 
 <body>
     <?php
-    include ("connection.php");
+    include("connection.php");
     $userprofile = $_SESSION['email'];
 
     if ($userprofile == true) {
@@ -77,9 +77,9 @@
     ?>
 
 
-    <h2 align="center">Expense Summary</h2>
-    <h4 align="center">Expense summary on basis of dates</h4>
-    <center>
+    <h2 style="text-align: center;">Expense Summary</h2>
+    <h4 style="text-align: center;">Expense summary on basis of dates</h4>
+    <div style="text-align: center;">
         <table border="1" cellspacing="7" width="50%">
             <tr>
                 <th>Daily Expense</th>
@@ -92,10 +92,10 @@
                 <td><?php echo $monthly_expense; ?></td>
             </tr>
         </table>
-    </center>
+    </div>
 
-    <h4 align="center">Expense summary for this month</h4>
-    <center>
+    <h4 style="text-align: center;">Expense summary for this month</h4>
+    <div style="text-align: center;">
         <select id="sortOrderYearly" onchange="sortYearlyTable()">
             <option value="" disabled selected hidden>Sort</option>
             <option value="desc">High to Low</option>
@@ -115,10 +115,10 @@
             }
             ?>
         </table>
-    </center>
+    </div>
 
-    <h4 align="center">Expense summary for <?php echo $current_year; ?></h4>
-    <center>
+    <h4 style="text-align: center;">Expense summary for <?php echo $current_year; ?></h4>
+    <div style="text-align: center;">
         <select id="sortOrderMonthly" onchange="sortMonthlyTable()">
             <option value="" disabled selected hidden>Sort</option>
             <option value="desc">High to Low</option>
@@ -138,10 +138,10 @@
             }
             ?>
         </table>
-    </center>
+    </div>
 
-    <h4 align="center">Expense summary on basis of years</h4>
-    <center>
+    <h4 style="text-align: center;">Expense summary on basis of years</h4>
+    <div style="text-align: center;">
         <select id="sortOrderdailyall" onchange="sortdailyallTable()">
             <option value="" disabled selected hidden>Sort</option>
             <option value="desc">High to Low</option>
@@ -161,10 +161,10 @@
             }
             ?>
         </table>
-    </center>
+    </div>
 
-    <h4 align="center">Expense summary on basis of categories</h4>
-    <center>
+    <h4 style="text-align: center;">Expense summary on basis of categories</h4>
+    <div style="text-align: center;">
         <select id="categoryFilter" onchange="filterCategory()">
             <option value="all">All Categories</option>
             <?php
@@ -194,9 +194,9 @@
             }
             ?>
         </table>
-    </center>
+    </div>
     <?php
-    include ("footer.php");
+    include("footer.php");
     ?>
 </body>
 
