@@ -7,7 +7,7 @@
     <title>Home</title>
 </head>
 <body>
-    <nav class="bg-purple-800 text-white flex justify-between">
+    <nav class="bg-purple-600 text-white flex justify-between">
         <img src="images/logo2.png" class="w-20 py-1 px-2 rounded-3xl" alt="Logo">
         <ul class="px-24 py-4 flex space-x-11 justify-end">
             <li class="cursor-pointer"><a href="home.php">Home</a></li>
@@ -31,7 +31,7 @@
             <img src="images/intro.jpg" class="max-h-96 w-auto rounded-3xl" alt="Front Image">
         </div>
     </main>
-    <footer class="bg-purple-800 text-white py-6">
+    <footer class="bg-purple-600 text-white py-6">
         <div class="container mx-auto text-center">
             <p class="mb-2">&copy; 2024 Expense Tracker. All rights reserved.</p>
         </div>
