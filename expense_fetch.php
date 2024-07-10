@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Summary</title>
-    <link rel="stylesheet" href="CSS/index-style.css">
-    <link rel="stylesheet" href="CSS/style_main.css">
-    <script src="js/script.js"></script>
+    <script src="tailwind.js"></script>
 </head>
-
-<body>
+<body class="bg-gray-100 text-gray-800">
     <?php
     include("connection.php");
     $userprofile = $_SESSION['email'];
@@ -20,17 +17,19 @@
     }
     ?>
 
-    <header class="header">
-        <h1>Expense Tracker</h1>
-        <nav class="navbar">
-            <a class="nav-link" href="dashboard.php">Dashboard</a>
-            <a class="nav-link" href="expense.php">Expenses</a>
-            <a class="nav-link" href="chart.php">Graphs</a>
-            <a class="nav-link" href="logout.php">Logout</a>
+<header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">Expense Tracker</h1>
+        <nav class="flex space-x-4">
+            <a class="nav-link text-white hover:text-gray-200" href="expense_form.php">Add Expenses</a>
+            <a class="nav-link text-white hover:text-gray-200" href="expense.php">Expenses</a>
+            <a class="nav-link text-white hover:text-gray-200" href="expense_fetch.php">Expenses Summary</a>
+            <a class="nav-link text-white hover:text-gray-200" href="chart.php">Graphs</a>
+            <a class="nav-link text-white hover:text-gray-200" href="logout.php">Logout</a>
         </nav>
     </header>
 
     <?php
+    // Fetching expenses data from the database
     $query_daily = "SELECT SUM(amount) as daily_expense FROM expense WHERE email='$userprofile' AND DATE(date) = CURDATE()";
     $result_daily = mysqli_query($con, $query_daily);
     $row_daily = mysqli_fetch_assoc($result_daily);
@@ -57,7 +56,7 @@
     $result_monthly_all = mysqli_query($con, $query_monthly_all);
 
     $first_day_of_month = date("Y-m-01");
-    $last_day_of_month = date("Y-m-31");
+    $last_day_of_month = date("Y-m-t");
     $query_daily_month = "
     SELECT 
         DATE(date) as expense_date, 
@@ -74,128 +73,122 @@
     $result_daily_month = mysqli_query($con, $query_daily_month);
     ?>
 
+    <div class="container  py-8">
+        <h2 class="text-2xl font-bold text-center mb-4 text-red-600">Expense Summary</h2>
+        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary based on dates</h4>
+        <div class="flex justify-center mb-8">
+            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="px-4 py-2">Daily Expense</th>
+                            <th class="px-4 py-2">Weekly Expense</th>
+                            <th class="px-4 py-2">Monthly Expense</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border px-4 py-2"><?php echo $daily_expense; ?></td>
+                            <td class="border px-4 py-2"><?php echo $weekly_expense; ?></td>
+                            <td class="border px-4 py-2"><?php echo $monthly_expense; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <h2 style="text-align: center;">Expense Summary</h2>
-    <h4 style="text-align: center;">Expense summary on basis of dates</h4>
-    <div style="text-align: center;">
-        <table cellspacing="7" width="50%">
-            <tr>
-                <th>Daily Expense</th>
-                <th>Weekly Expense</th>
-                <th>Monthly Expense</th>
-            </tr>
-            <tr>
-                <td><?php echo $daily_expense; ?></td>
-                <td><?php echo $weekly_expense; ?></td>
-                <td><?php echo $monthly_expense; ?></td>
-            </tr>
-        </table>
+        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary for this month</h4>
+        <div class="flex justify-center mb-8">
+            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="px-4 py-2">Date</th>
+                            <th class="px-4 py-2">Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) { ?>
+                            <tr>
+                                <td class="border px-4 py-2"><?php echo $row_daily_month['expense_date']; ?></td>
+                                <td class="border px-4 py-2"><?php echo $row_daily_month['total_amount']; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary for <?php echo $current_year; ?></h4>
+        <div class="flex justify-center mb-8">
+            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="px-4 py-2">Month</th>
+                            <th class="px-4 py-2">Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row_monthly_all = mysqli_fetch_assoc($result_monthly_all)) { ?>
+                            <tr>
+                                <td class="border px-4 py-2"><?php echo $row_monthly_all['month']; ?></td>
+                                <td class="border px-4 py-2"><?php echo $row_monthly_all['total_amount']; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary on basis of years</h4>
+        <div class="flex justify-center mb-8">
+            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="px-4 py-2">Year</th>
+                            <th class="px-4 py-2">Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row_yearly = mysqli_fetch_assoc($result_yearly)) { ?>
+                            <tr>
+                                <td class="border px-4 py-2"><?php echo $row_yearly['year']; ?></td>
+                                <td class="border px-4 py-2"><?php echo $row_yearly['total_amount']; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary on basis of categories</h4>
+        <div class="flex justify-center mb-8">
+            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="px-4 py-2">Category</th>
+                            <th class="px-4 py-2">Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php mysqli_data_seek($result_category, 0); ?>
+                        <?php while ($row_category = mysqli_fetch_assoc($result_category)) { ?>
+                            <tr>
+                                <td class="border px-4 py-2"><?php echo $row_category['category']; ?></td>
+                                <td class="border px-4 py-2"><?php echo $row_category['total_amount']; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-    <h4 style="text-align: center;">Expense summary for this month</h4>
-    <div style="text-align: center;">
-        <select id="sortOrderYearly" onchange="sortYearlyTable()">
-            <option value="" disabled selected hidden>Sort</option>
-            <option value="desc">High to Low</option>
-            <option value="asc">Low to High</option>
-        </select>
-        <table cellspacing="7" width="50%" id="yearlyTable">
-            <tr>
-                <th>Date</th>
-                <th>Total Amount</th>
-            </tr>
-            <?php
-            while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
-                echo "<tr>
-                    <td>" .$row_daily_month['expense_date'] . "</td>
-                    <td>" .$row_daily_month['total_amount'] . "</td>
-                </tr>";
-            }
-            ?>
-        </table>
-    </div>
-
-    <h4 style="text-align: center;">Expense summary for <?php echo $current_year; ?></h4>
-    <div style="text-align: center;">
-        <select id="sortOrderMonthly" onchange="sortMonthlyTable()">
-            <option value="" disabled selected hidden>Sort</option>
-            <option value="desc">High to Low</option>
-            <option value="asc">Low to High</option>
-        </select>
-        <table cellspacing="7" width="50%" id="monthlyTable">
-            <tr>
-                <th>Month</th>
-                <th>Total Amount</th>
-            </tr>
-            <?php
-            while ($row_monthly_all = mysqli_fetch_assoc($result_monthly_all)) {
-                echo "<tr>
-                    <td>" . $row_monthly_all['month'] . "</td>
-                    <td>" . $row_monthly_all['total_amount'] . "</td>
-                </tr>";
-            }
-            ?>
-        </table>
-    </div>
-
-    <h4 style="text-align: center;">Expense summary on basis of years</h4>
-    <div style="text-align: center;">
-        <select id="sortOrderdailyall" onchange="sortdailyallTable()">
-            <option value="" disabled selected hidden>Sort</option>
-            <option value="desc">High to Low</option>
-            <option value="asc">Low to High</option>
-        </select>
-        <table cellspacing="7" width="50%" id="dailyallTable">
-            <tr>
-                <th>Year</th>
-                <th>Total Amount</th>
-            </tr>
-            <?php
-            while ($row_yearly = mysqli_fetch_assoc($result_yearly)) {
-                echo "<tr>
-                    <td>" . $row_yearly['year'] . "</td>
-                    <td>" . $row_yearly['total_amount'] . "</td>
-                </tr>";
-            }
-            ?>
-        </table>
-    </div>
-
-    <h4 style="text-align: center;">Expense summary on basis of categories</h4>
-    <div style="text-align: center;">
-        <select id="categoryFilter" onchange="filterCategory()">
-            <option value="all">All Categories</option>
-            <?php
-            mysqli_data_seek($result_category, 0);
-            while ($row_category_option = mysqli_fetch_assoc($result_category)) {
-                echo "<option value='" . $row_category_option['category'] . "'>" . $row_category_option['category'] . "</option>";
-            }
-            ?>
-        </select>
-        <select id="sortOrderCategory" onchange="sortCategoryTable()">
-            <option value="" disabled selected hidden>Sort</option>
-            <option value="desc">High to Low</option>
-            <option value="asc">Low to High</option>
-        </select>
-        <table cellspacing="7" width="50%" id="categoryTable">
-            <tr>
-                <th>Category</th>
-                <th>Total Amount</th>
-            </tr>
-            <?php
-            mysqli_data_seek($result_category, 0);
-            while ($row_category = mysqli_fetch_assoc($result_category)) {
-                echo "<tr>
-                    <td>" . $row_category['category'] . "</td>
-                    <td>" . $row_category['total_amount'] . "</td>
-                </tr>";
-            }
-            ?>
-        </table>
-    </div>
-    <?php
-    include("footer.php");
-    ?>
+    <footer class="bg-blue-600 text-white mt-auto p-4">
+        <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
+    </footer>
 </body>
-
 </html>

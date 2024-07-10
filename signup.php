@@ -1,6 +1,5 @@
 <?php
-include("connection.php");
-include("header.php");
+include ("connection.php");
 
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
@@ -59,11 +58,11 @@ Securely binds the user-provided data to the query.
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <link rel="stylesheet" type="text/css" href="CSS/index-style.css">
+    <script src="tailwind.js"></script>
     <title>Sign Up</title>
     <script>
         function validateForm() {
@@ -85,49 +84,54 @@ Securely binds the user-provided data to the query.
         }
     </script>
 </head>
+
 <body>
-    <div class="container">
+    <nav class="bg-violet-500 text-white flex justify-between">
+        <img src="images/logo2.png" class="w-20 py-1 px-2 rounded-3xl" alt="Logo">
+        <ul class="px-20 py-4 flex space-x-11 justify-end text-xl">
+            <li class="cursor-pointer text-lg"><a href="index.php">Home</a></li>
+            <li class="cursor-pointer text-lg"><a href="signup.php">Signup</a></li>
+            <li class="cursor-pointer text-lg"><a href="login.php">Login</a></li>
+            <li class="cursor-pointer text-lg"><a href="about.php">Contact us</a></li>
+        </ul>
+    </nav>
+    <main class="bg-gray-100 flex items-center justify-center py-5">
+    <div class="w-full max-w-lg bg-white rounded-lg shadow-md p-8 border-3 border-blue-400">
         <form name="signupForm" action="#" method="POST" onsubmit="return validateForm()">
-            <div class="title">
-                Sign Up
-            </div>
-            <div class="Title">
+        <h2 class="text-2xl font-bold mb-2 text-center text-green-600 font-serif">Sign up</h2>
+            <div class="text-xl font-bold mb-2 text-center font-sans text-red-400">
                 <h5>Create a new account</h5>
             </div>
-            <div class="form">
+            <div class="space-y-4">
                 <div class="input_field">
-                    <label>First Name</label>
-                    <input type="text" class="input" name="fname" placeholder="First Name" required>
+                    <input type="text" class="input w-full px-4 py-2 rounded-md border-2 border-violet-300" name="fname" placeholder="Enter your first Name" required>
                 </div>
                 <div class="input_field">
-                    <label>Last Name</label>
-                    <input type="text" class="input" name="lname" placeholder="Last Name" required>
+                <input type="text" class="input w-full px-4 py-2 rounded-md border-2 border-violet-300" name="lname" placeholder="Enter your last Name" required>
                 </div>
                 <div class="input_field">
-                    <label>Phone No</label>
-                    <input type="text" class="input" name="phone" placeholder="1234567890" required>
+                <input type="text" class="input w-full px-4 py-2 rounded-md border-2 border-violet-300" name="phone" placeholder="Enter phone no" required>
                 </div>
                 <div class="input_field">
-                    <label>Email Address</label>
-                    <input type="email" class="input" name="email" placeholder="abc@gmail.com" required>
+                <input type="email" class="input w-full px-4 py-2 rounded-md border-2 border-violet-300" name="email" placeholder="Enter your email id" required>
                 </div>
                 <div class="input_field">
-                    <label>Password</label>
-                    <input type="password" class="input" name="password" placeholder="Enter your password" required>
+                <input type="password" class="input w-full px-4 py-2 rounded-md border-2 border-violet-300" name="password" placeholder="Enter your password" required>
                 </div>
                 <div class="input_field">
-                    <label>Confirm Password</label>
-                    <input type="password" class="input" name="conpassword" placeholder="Confirm your password" required>
+                <input type="password" class="input w-full px-4 py-2 rounded-md border-2 border-violet-300" name="conpassword" placeholder="Confirm your password" required>
                 </div>
                 <div class="input_field">
-                    <input type="submit" value="Sign Up" class="btn" name="register">
+                    <input type="submit" value="Sign Up" class=" w-full btn mx-30 bg-cyan-500 text-white text-lg px-4 py-2 rounded-md cursor-pointer hover:bg-blue-600" name="register">
                 </div>
-                <div class="signup">Already have an account? <a href="login.php" class="link">Login Here</a></div>
+                <div class="signup text-center font-serif mt-4 text-purple-600">Already have an account? <a href="login.php" class="text-green-500 hover:underline">Login Here</a></div>
             </div>
         </form>
     </div>
+    </main>
+    <footer class="bg-violet-500 text-white py-3">
+            <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
-<footer class="footer" style="position :fixed">
-    <p> Copyright @ Expense Tracer. All Rights Reserved | Contact Us: +9190000 00000</p>
-</footer>

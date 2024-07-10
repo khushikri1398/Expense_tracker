@@ -4,59 +4,56 @@ function checkdelete() {
 
 function filterCategory() {
     var dropdown = document.getElementById("categoryFilter");
-    var table = document.getElementById("expenseTable");
-    var rows = table.getElementsByTagName("tr");
+    var cards = document.querySelectorAll(".expense-card");
     var selectedCategory = dropdown.value;
 
-    for (var i = 1; i < rows.length; i++) {
-        var categoryCell = rows[i].getElementsByTagName("td")[0];
-        if (categoryCell) {
-            var category = categoryCell.textContent;
-            if (selectedCategory === "all" || category === selectedCategory) {
-                rows[i].style.display = "";
-            } else {
-                rows[i].style.display = "none";
-            }
+    cards.forEach(function(card) {
+        var category = card.dataset.category;
+        if (selectedCategory === "all" || category === selectedCategory) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
         }
-    }
+    });
 }
 
-function sortTable(columnIdx, tableId) {
-    var table = document.getElementById(tableId);
-    var rows = table.getElementsByTagName("tr");
-    var sortOrder;
+function sortCards(sortBy, order) {
+    var container = document.querySelector(".cards-container");
+    var cards = Array.prototype.slice.call(container.querySelectorAll(".expense-card"));
 
-    if (columnIdx === 1) {
-        sortOrder = document.getElementById("sortPrice").value;
-    } else if (columnIdx === 3) {
-        sortOrder = document.getElementById("sortDate").value;
-    }
+    cards.sort(function(a, b) {
+        var aVal, bVal;
 
-    if (sortOrder === "none") {
-        return;
-    }
-
-    var sortedRows = Array.prototype.slice.call(rows, 1).sort(function(a, b) {
-        var aVal = a.cells[columnIdx].textContent;
-        var bVal = b.cells[columnIdx].textContent;
-
-        if (columnIdx === 1) {
-            aVal = parseFloat(aVal);
-            bVal = parseFloat(bVal);
-        } else if (columnIdx === 3) {
-            aVal = new Date(aVal);
-            bVal = new Date(bVal);
+        if (sortBy === "price") {
+            aVal = parseFloat(a.dataset.amount);
+            bVal = parseFloat(b.dataset.amount);
+        } else if (sortBy === "date") {
+            aVal = new Date(a.dataset.date);
+            bVal = new Date(b.dataset.date);
         }
 
-        if (sortOrder === "asc") {
+        if (order === "asc") {
             return aVal - bVal;
         } else {
             return bVal - aVal;
         }
     });
 
-    for (var i = 0; i < sortedRows.length; i++) {
-        table.appendChild(sortedRows[i]);
-    }
+    cards.forEach(function(card) {
+        container.appendChild(card);
+    });
 }
 
+document.getElementById("sortPrice").addEventListener("change", function() {
+    var sortOrder = this.value;
+    if (sortOrder !== "none") {
+        sortCards("price", sortOrder);
+    }
+});
+
+document.getElementById("sortDate").addEventListener("change", function() {
+    var sortOrder = this.value;
+    if (sortOrder !== "none") {
+        sortCards("date", sortOrder);
+    }
+});

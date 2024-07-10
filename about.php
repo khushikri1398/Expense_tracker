@@ -4,68 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-    <link rel="stylesheet" href="CSS/style_update.css">
+    <script src="tailwind.js"></script>
+    <title>Contact Us - Expense Tracker</title>
 </head>
 
-<body>
-    <header class="header">
-        <h1>Expense Tracker</h1>
-    </header>
-    <nav class="navbar">
-        <a class="nav-link" href="index.php">Home</a>
-        <a class="nav-link" href="about.php">About</a>
-        <a class="nav-link" href="signup.php">Sign Up</a>
-        <a class="nav-link" href="login.php">Login</a>
+<body class="flex flex-col min-h-screen">
+    <nav class="bg-violet-500 text-white flex justify-between">
+        <img src="images/logo2.png" class="w-20 py-1 px-2 rounded-3xl" alt="Logo">
+        <ul class="px-20 py-4 flex space-x-11 justify-end text-xl">
+            <li class="cursor-pointer"><a href="index.php">Home</a></li>
+            <li class="cursor-pointer"><a href="signup.php">Signup</a></li>
+            <li class="cursor-pointer"><a href="login.php">Login</a></li>
+            <li class="cursor-pointer"><a href="about.php">Contact us</a></li>
+        </ul>
     </nav>
-    <main class="main">
-        <section class="content">
-            <div class="about">
-                <h1>About Expense Tracker</h1>
-                <h3>
-                    This web-based application helps individuals and businesses manage their finances by tracking and summarizing expenses. Users can log their expenses, update, delete, categorize them, and view detailed summaries and charts to analyze spending habits. The application offers user authentication, data security, and a responsive interface for an efficient and user-friendly experience.With these comprehensive features, Expense Tracker ensures efficient expense management and insightful financial analysis.
-                </h3>
-            </div>
-            <div class="contact-form">
-                <h2>Contact Us</h2>
-                <form action="#" method="post">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-
-                    
-                    <div class="input_field">
-                    <input type="submit" value="Submit" class="btn" name="register">
-                    </div>
-                </form>
-            </div>
-        </section>
+    <main class="bg-gray-100 flex-grow flex items-center justify-center">
+        <div class="w-full max-w-lg bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Contact Us</h2>
+            <form action="#" method="post">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-bold mb-2 text-center">Name:</label>
+                    <input type="text" id="name" name="name"
+                        class="shadow appearance-none rounded border-2 border-violet-300 w-full py-2 px-3 text-gray-700"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-bold mb-2 text-center">Email:</label>
+                    <input type="email" id="email" name="email"
+                        class="shadow appearance-none border-2 border-violet-300 rounded w-full py-2 px-3 text-gray-700"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 font-bold mb-2 text-center">Message:</label>
+                    <textarea id="message" name="message" rows="4"
+                        class="shadow appearance-none border-2 border-violet-300 rounded w-full py-2 px-3 text-gray-700"
+                        required></textarea>
+                </div>
+                <div class="flex items-center justify-center">
+                    <input type="submit" value="Submit"
+                        class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full active:bg-slate-700"
+                        name="register" >
+                </div>
+            </form>
+        </div>
     </main>
+    <footer class="bg-violet-500 text-white py-3">
+            <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
 <?php
-include("connection.php");
+include ("connection.php");
 
 // Check connection
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
-if (isset($_POST['register'])) 
-{
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $message=$_POST['message'];
+if (isset($_POST['register'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-    if($name!="" && $email!= ""&& $message!= "")
-    {
+    if ($name != "" && $email != "" && $message != "") {
         $query = "INSERT INTO contact(name,email,message) VALUES ('$name','$email','$message')";
-        $data= mysqli_query($con,$query);
+        $data = mysqli_query($con, $query);
         if ($data) {
             echo "<script>alert('We will reach you shortly');</script>";
         } else {
@@ -74,7 +77,3 @@ if (isset($_POST['register']))
     }
 }
 ?>
-<footer class="footer">
-        <p> Copyright @ Expense Tracer. All Rights Reserved | Contact Us: +9190000 00000</p>
-</footer>
-
