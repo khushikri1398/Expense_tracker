@@ -7,9 +7,12 @@
     <title>Expense Summary</title>
     <script src="tailwind.js"></script>
 </head>
+
 <body class="bg-gray-100 text-gray-800">
     <?php
-    include("connection.php");
+    include ("connection.php");
+    include ("header.php");
+
     $userprofile = $_SESSION['email'];
 
     if (!$userprofile) {
@@ -17,16 +20,6 @@
     }
     ?>
 
-<header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">Expense Tracker</h1>
-        <nav class="flex space-x-4">
-            <a class="nav-link text-white hover:text-gray-200" href="expense_form.php">Add Expenses</a>
-            <a class="nav-link text-white hover:text-gray-200" href="expense.php">Expenses</a>
-            <a class="nav-link text-white hover:text-gray-200" href="expense_fetch.php">Expenses Summary</a>
-            <a class="nav-link text-white hover:text-gray-200" href="chart.php">Graphs</a>
-            <a class="nav-link text-white hover:text-gray-200" href="logout.php">Logout</a>
-        </nav>
-    </header>
 
     <?php
     // Fetching expenses data from the database
@@ -81,9 +74,9 @@
                 <table class="table-auto w-full">
                     <thead>
                         <tr class="bg-blue-100">
-                            <th class="px-4 py-2">Daily Expense</th>
-                            <th class="px-4 py-2">Weekly Expense</th>
-                            <th class="px-4 py-2">Monthly Expense</th>
+                            <th class=" py-2">Daily Expense</th>
+                            <th class=" py-2">Weekly Expense</th>
+                            <th class=" py-2">Monthly Expense</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -119,7 +112,25 @@
             </div>
         </div>
 
-        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary for <?php echo $current_year; ?></h4>
+        <?php
+        $month_names = array(
+            1 => 'January',
+            2 => 'February',
+            3 => 'March',
+            4 => 'April',
+            5 => 'May',
+            6 => 'June',
+            7 => 'July',
+            8 => 'August',
+            9 => 'September',
+            10 => 'October',
+            11 => 'November',
+            12 => 'December'
+        );
+        ?>
+
+        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary for
+            <?php echo $current_year; ?></h4>
         <div class="flex justify-center mb-8">
             <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
                 <table class="table-auto w-full">
@@ -132,7 +143,12 @@
                     <tbody>
                         <?php while ($row_monthly_all = mysqli_fetch_assoc($result_monthly_all)) { ?>
                             <tr>
-                                <td class="border px-4 py-2"><?php echo $row_monthly_all['month']; ?></td>
+                                <td class="border px-4 py-2">
+                                    <?php
+                                    $month_number = $row_monthly_all['month'];
+                                    echo $month_names[$month_number];
+                                    ?>
+                                </td>
                                 <td class="border px-4 py-2"><?php echo $row_monthly_all['total_amount']; ?></td>
                             </tr>
                         <?php } ?>
@@ -140,6 +156,7 @@
                 </table>
             </div>
         </div>
+
 
         <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary on basis of years</h4>
         <div class="flex justify-center mb-8">
@@ -187,8 +204,9 @@
         </div>
     </div>
 
-    <footer class="bg-blue-600 text-white mt-auto p-4">
-        <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
-    </footer>
+    <?php
+    include ("footer.php");
+    ?>
 </body>
+
 </html>

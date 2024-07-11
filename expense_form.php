@@ -1,5 +1,6 @@
 <?php 
 include("connection.php"); 
+include("header.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +11,7 @@ include("connection.php");
     <title>Expense Form</title>
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100">
-    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">Expense Tracker</h1>
-        <nav class="flex space-x-4">
-            <a class="text-white hover:text-gray-200" href="expense_form.php">Add Expenses</a>
-            <a class="text-white hover:text-gray-200" href="expense.php">Expenses</a>
-            <a class="text-white hover:text-gray-200" href="expense_fetch.php">Expenses Summary</a>
-            <a class="text-white hover:text-gray-200" href="chart.php">Graphs</a>
-            <a class="text-white hover:text-gray-200" href="logout.php">Logout</a>
-        </nav>
-    </header>
+
     <div class="flex justify-center items-center flex-grow m-4">
         <div class="w-full max-w-md p-6 bg-white shadow-md rounded-md">
             <form name="expenseForm" action="#" method="POST">
@@ -55,24 +47,20 @@ include("connection.php");
             </form>
         </div>
     </div>
-    <footer class="bg-blue-600 text-white mt-auto p-4">
-        <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
-    </footer>
+    <?php
+    include("footer.php");
+    ?>
 </body>
 </html>
 
 <?php
-error_reporting(0);
 
 $userprofile=$_SESSION['email'];
-if($userprofile == true)
-{
-
-}
-else
+if(!$userprofile)
 {
     header('Location: index.php');
 }
+
 ?>
 <?php
 if (isset($_POST['register'])) {

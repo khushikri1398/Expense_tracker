@@ -9,15 +9,15 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <nav class="bg-violet-500 text-white flex justify-between">
-        <img src="images/logo2.png" class="w-20 py-1 px-2 rounded-3xl" alt="Logo">
-        <ul class="px-20 py-4 flex space-x-11 justify-end text-xl">
-            <li class="cursor-pointer"><a href="index.php">Home</a></li>
-            <li class="cursor-pointer"><a href="signup.php">Signup</a></li>
-            <li class="cursor-pointer"><a href="login.php">Login</a></li>
-            <li class="cursor-pointer"><a href="about.php">Contact us</a></li>
-        </ul>
+<header class="bg-blue-600 text-white p-4 px-6 flex flex-col md:flex-row justify-between items-center">
+    <h1 class="text-xl font-bold mb-4 md:mb-0">Expense Tracker</h1>
+    <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+        <a class="nav-link text-white hover:text-gray-200" href="index.php">Home</a>
+        <a class="nav-link text-white hover:text-gray-200" href="signup.php">Signup</a>
+        <a class="nav-link text-white hover:text-gray-200" href="login.php">Login</a>
+        <a class="nav-link text-white hover:text-gray-200" href="about.php">Contact us</a>
     </nav>
+</header>
     <main class="bg-gray-100 flex-grow flex items-center justify-center">
         <div class="w-full max-w-lg bg-white rounded-lg shadow-md p-8">
             <h2 class="text-2xl font-bold mb-6 text-center">Contact Us</h2>
@@ -48,9 +48,9 @@
             </form>
         </div>
     </main>
-    <footer class="bg-violet-500 text-white py-3">
-            <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
-    </footer>
+    <?php
+include "footer.php";
+?>
 </body>
 
 </html>

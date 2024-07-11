@@ -86,15 +86,15 @@ Securely binds the user-provided data to the query.
 </head>
 
 <body>
-    <nav class="bg-violet-500 text-white flex justify-between">
-        <img src="images/logo2.png" class="w-20 py-1 px-2 rounded-3xl" alt="Logo">
-        <ul class="px-20 py-4 flex space-x-11 justify-end text-xl">
-            <li class="cursor-pointer text-lg"><a href="index.php">Home</a></li>
-            <li class="cursor-pointer text-lg"><a href="signup.php">Signup</a></li>
-            <li class="cursor-pointer text-lg"><a href="login.php">Login</a></li>
-            <li class="cursor-pointer text-lg"><a href="about.php">Contact us</a></li>
-        </ul>
+<header class="bg-blue-600 text-white p-4 px-6 flex flex-col md:flex-row justify-between items-center">
+    <h1 class="text-xl font-bold mb-4 md:mb-0">Expense Tracker</h1>
+    <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+        <a class="nav-link text-white hover:text-gray-200" href="index.php">Home</a>
+        <a class="nav-link text-white hover:text-gray-200" href="signup.php">Signup</a>
+        <a class="nav-link text-white hover:text-gray-200" href="login.php">Login</a>
+        <a class="nav-link text-white hover:text-gray-200" href="about.php">Contact us</a>
     </nav>
+</header>
     <main class="bg-gray-100 flex items-center justify-center py-5">
     <div class="w-full max-w-lg bg-white rounded-lg shadow-md p-8 border-3 border-blue-400">
         <form name="signupForm" action="#" method="POST" onsubmit="return validateForm()">
@@ -129,9 +129,9 @@ Securely binds the user-provided data to the query.
         </form>
     </div>
     </main>
-    <footer class="bg-violet-500 text-white py-3">
-            <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
-    </footer>
+    <?php
+include "footer.php";
+?>
 </body>
 
 </html>

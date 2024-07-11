@@ -1,41 +1,45 @@
 function checkdelete() {
     return confirm('Are you sure you want to delete this expense?');
 }
+document.addEventListener("DOMContentLoaded", function() {
+    filterCategory();
+    sortCards('date', 'desc');
+});
 
 function filterCategory() {
-    var dropdown = document.getElementById("categoryFilter");
-    var cards = document.querySelectorAll(".expense-card");
-    var selectedCategory = dropdown.value;
+    var category = document.getElementById("categoryFilter").value;
+    var cards = document.getElementsByClassName("expense-card");
 
-    cards.forEach(function(card) {
-        var category = card.dataset.category;
-        if (selectedCategory === "all" || category === selectedCategory) {
-            card.style.display = "";
+    for (var i = 0; i < cards.length; i++) {
+        if (category === "all" || cards[i].getAttribute("data-category") === category) {
+            cards[i].style.display = "block";
         } else {
-            card.style.display = "none";
+            cards[i].style.display = "none";
         }
-    });
+    }
 }
 
-function sortCards(sortBy, order) {
+function sortCards(criteria, order) {
     var container = document.querySelector(".cards-container");
-    var cards = Array.prototype.slice.call(container.querySelectorAll(".expense-card"));
+    var cards = Array.from(container.getElementsByClassName("expense-card"));
 
     cards.sort(function(a, b) {
-        var aVal, bVal;
+        var aValue, bValue;
 
-        if (sortBy === "price") {
-            aVal = parseFloat(a.dataset.amount);
-            bVal = parseFloat(b.dataset.amount);
-        } else if (sortBy === "date") {
-            aVal = new Date(a.dataset.date);
-            bVal = new Date(b.dataset.date);
+        if (criteria === "price") {
+            aValue = parseFloat(a.getAttribute("data-amount"));
+            bValue = parseFloat(b.getAttribute("data-amount"));
+        } else if (criteria === "date") {
+            aValue = new Date(a.getAttribute("data-date"));
+            bValue = new Date(b.getAttribute("data-date"));
         }
 
         if (order === "asc") {
-            return aVal - bVal;
+            return aValue - bValue;
+        } else if (order === "desc") {
+            return bValue - aValue;
         } else {
-            return bVal - aVal;
+            return 0;
         }
     });
 
@@ -43,17 +47,3 @@ function sortCards(sortBy, order) {
         container.appendChild(card);
     });
 }
-
-document.getElementById("sortPrice").addEventListener("change", function() {
-    var sortOrder = this.value;
-    if (sortOrder !== "none") {
-        sortCards("price", sortOrder);
-    }
-});
-
-document.getElementById("sortDate").addEventListener("change", function() {
-    var sortOrder = this.value;
-    if (sortOrder !== "none") {
-        sortCards("date", sortOrder);
-    }
-});

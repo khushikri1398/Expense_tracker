@@ -1,5 +1,6 @@
 <?php
-include("connection.php");
+include ("connection.php");
+include ("header.php");
 
 $userprofile = $_SESSION['email'];
 
@@ -62,6 +63,7 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
 
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -162,30 +164,23 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
         }
     </script>
 </head>
+
 <body class="bg-gray-100 text-gray-900">
 
-<header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">Expense Tracker</h1>
-        <nav class="flex space-x-4">
-            <a class="nav-link text-white hover:text-gray-200" href="expense_form.php">Add Expenses</a>
-            <a class="nav-link text-white hover:text-gray-200" href="expense.php">Expenses</a>
-            <a class="nav-link text-white hover:text-gray-200" href="expense_fetch.php">Expenses Summary</a>
-            <a class="nav-link text-white hover:text-gray-200" href="chart.php">Graphs</a>
-            <a class="nav-link text-white hover:text-gray-200" href="logout.php">Logout</a>
-        </nav>
-    </header>
+
 
     <div class="container  px-4 my-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div id="dailyChartContainer" class="h-96"></div>
-    <div id="dailyMonthChartContainer" class="h-96"></div>
-    <div id="monthlyChartContainer" class="h-96"></div>
-    <div id="yearlyChartContainer" class="h-96"></div>
-    <div id="categoryChartContainer" class="h-96"></div>
-</div>
+        <div id="dailyChartContainer" class="h-96"></div>
+        <div id="dailyMonthChartContainer" class="h-96"></div>
+        <div id="monthlyChartContainer" class="h-96"></div>
+        <div id="yearlyChartContainer" class="h-96"></div>
+        <div id="categoryChartContainer" class="h-96"></div>
+    </div>
 
-<footer class="bg-blue-600 text-white mt-auto p-4">
-        <p class="my-0 text-center">&copy; 2024 Expense Tracker. All rights reserved.</p>
-    </footer>
+    <?php
+    include ("footer.php");
+    ?>
 
 </body>
+
 </html>
