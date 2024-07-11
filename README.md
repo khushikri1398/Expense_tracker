@@ -19,7 +19,7 @@ Expense Tracker is designed to help individuals and businesses manage their fina
 
 - **Frontend:**
   - HTML
-  - CSS
+  - TailwindCss
   - JavaScript
 
 - **Backend:**
