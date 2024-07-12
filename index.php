@@ -27,16 +27,16 @@
                     businesses manage their finances by tracking and summarizing expenses. Users can log their expenses,
                     update, delete, categorize them, and view detailed summaries and charts to analyze spending habits.
                 </p>
-                <button class="text-white bg-green-500 px-4 py-2 my-6 rounded-md font-bold mx-7 relative z-10"><a
+                <button class="text-white bg-green-500 px-4 py-2 my-6 rounded-md font-bold mx-7 relative z-10 hover:-translate-y-1 transition delay-100 duration-200"><a
                         href="login.php">Start
                         Now </a></button>
             </div>
             <div class="right w-full md:w-1/2 flex justify-center items-center">
-                <img src="images/intro3.png" alt="Introduction Image" class="max-h-96 w-auto">
+                <img src="images/intro3.png" alt="Introduction Image" class="max-h-96 w-auto hover:-translate-y-1 hover:-translate-x-1 delay-100 duration-200">
             </div>
         </div>
         <div class="promo">
-            <div class="item flex  my-4 mx-16 items-center justify-center font-serif font-medium text-green-700">
+            <div class="item flex  my-3 mx-16 items-center justify-center font-serif font-medium text-green-700">
                 <p class="text-4xl ">Features our users love </p>
             </div>
         </div>
