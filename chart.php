@@ -17,7 +17,7 @@ while ($row_category = mysqli_fetch_assoc($result_category)) {
 }
 
 $current_year = date("Y");
-$query_monthly_all = "SELECT MONTH(date) as month, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' AND YEAR(date) = '$current_year' GROUP BY MONTH(date) ORDER BY month ASC";
+$query_monthly_all = "SELECT DATE_FORMAT(date, '%M') as month, SUM(amount) as total_amount FROM expense WHERE email='$userprofile' AND YEAR(date) = '$current_year' GROUP BY MONTH(date) ORDER BY MONTH(date) ASC";
 $result_monthly_all = mysqli_query($con, $query_monthly_all);
 $monthly_expense = array();
 while ($row_monthly = mysqli_fetch_assoc($result_monthly_all)) {
@@ -76,7 +76,14 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
                 animationEnabled: true,
                 exportEnabled: true,
                 title: {
-                    text: "Expense Distribution by Category"
+                    text: "Expense Distribution by Category",
+                    fontSize: 24,
+                    fontColor: "#4a5568",
+                    fontFamily: "Arial, sans-serif",
+                    padding: {
+                        top: 10,
+                        bottom: 10
+                    }
                 },
                 data: [{
                     type: "pie",
@@ -94,7 +101,14 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
                 animationEnabled: true,
                 exportEnabled: true,
                 title: {
-                    text: "Monthly Expense Distribution for <?php echo $current_year; ?>"
+                    text: "Monthly Expense Distribution for <?php echo $current_year; ?>",
+                    fontSize: 24,
+                    fontColor: "#4a5568",
+                    fontFamily: "Arial, sans-serif",
+                    padding: {
+                        top: 10,
+                        bottom: 10
+                    }
                 },
                 data: [{
                     type: "pie",
@@ -112,7 +126,14 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
                 animationEnabled: true,
                 exportEnabled: true,
                 title: {
-                    text: "Expense Distribution by Year"
+                    text: "Expense Distribution by Year",
+                    fontSize: 24,
+                    fontColor: "#4a5568",
+                    fontFamily: "Arial, sans-serif",
+                    padding: {
+                        top: 10,
+                        bottom: 10
+                    }
                 },
                 data: [{
                     type: "pie",
@@ -130,7 +151,14 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
                 animationEnabled: true,
                 exportEnabled: true,
                 title: {
-                    text: "Daily Expense Distribution for <?php echo $current_date; ?>"
+                    text: "Daily Expense Distribution for <?php echo $current_date; ?>",
+                    fontSize: 24,
+                    fontColor: "#4a5568",
+                    fontFamily: "Arial, sans-serif",
+                    padding: {
+                        top: 10,
+                        bottom: 10
+                    }
                 },
                 data: [{
                     type: "pie",
@@ -148,7 +176,14 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
                 animationEnabled: true,
                 exportEnabled: true,
                 title: {
-                    text: "Daily Expense Distribution for Current Month"
+                    text: "Daily Expense Distribution for Current Month",
+                    fontSize: 24,
+                    fontColor: "#4a5568",
+                    fontFamily: "Arial, sans-serif",
+                    padding: {
+                        top: 10,
+                        bottom: 10
+                    }
                 },
                 data: [{
                     type: "line",
@@ -167,9 +202,7 @@ while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) {
 
 <body class="bg-gray-100 text-gray-900">
 
-
-
-    <div class="container  px-4 my-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="container px-4 my-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div id="dailyChartContainer" class="h-96"></div>
         <div id="dailyMonthChartContainer" class="h-96"></div>
         <div id="monthlyChartContainer" class="h-96"></div>

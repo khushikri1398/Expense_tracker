@@ -20,7 +20,6 @@
     }
     ?>
 
-
     <?php
     // Fetching expenses data from the database
     $query_daily = "SELECT SUM(amount) as daily_expense FROM expense WHERE email='$userprofile' AND DATE(date) = CURDATE()";
@@ -66,21 +65,22 @@
     $result_daily_month = mysqli_query($con, $query_daily_month);
     ?>
 
-    <div class="container  py-8">
-        <h2 class="text-2xl font-bold text-center mb-4 text-red-600">Expense Summary</h2>
-        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary based on dates</h4>
+    <div class="container mx-auto py-8">
+        <h2 class="text-3xl font-bold text-center mb-6 text-blue-600">Expense Summary</h2>
+        
+        <h4 class="text-2xl font-semibold text-center mb-4 text-green-600">Expense Summary Based on Dates</h4>
         <div class="flex justify-center mb-8">
-            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+            <div class="bg-white shadow-md rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2">
                 <table class="table-auto w-full">
                     <thead>
-                        <tr class="bg-blue-100">
-                            <th class=" py-2">Daily Expense</th>
-                            <th class=" py-2">Weekly Expense</th>
-                            <th class=" py-2">Monthly Expense</th>
+                        <tr class="bg-blue-200 text-blue-800">
+                            <th class="py-3">Daily Expense</th>
+                            <th class="py-3">Weekly Expense</th>
+                            <th class="py-3">Monthly Expense</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="text-center">
                             <td class="border px-4 py-2"><?php echo $daily_expense; ?></td>
                             <td class="border px-4 py-2"><?php echo $weekly_expense; ?></td>
                             <td class="border px-4 py-2"><?php echo $monthly_expense; ?></td>
@@ -90,19 +90,19 @@
             </div>
         </div>
 
-        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary for this month</h4>
+        <h4 class="text-2xl font-semibold text-center mb-4 text-green-600">Expense Summary for This Month</h4>
         <div class="flex justify-center mb-8">
-            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+            <div class="bg-white shadow-md rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2">
                 <table class="table-auto w-full">
                     <thead>
-                        <tr class="bg-blue-100">
+                        <tr class="bg-blue-200 text-blue-800">
                             <th class="px-4 py-2">Date</th>
                             <th class="px-4 py-2">Total Amount</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($row_daily_month = mysqli_fetch_assoc($result_daily_month)) { ?>
-                            <tr>
+                            <tr class="hover:bg-blue-100">
                                 <td class="border px-4 py-2"><?php echo $row_daily_month['expense_date']; ?></td>
                                 <td class="border px-4 py-2"><?php echo $row_daily_month['total_amount']; ?></td>
                             </tr>
@@ -129,20 +129,19 @@
         );
         ?>
 
-        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary for
-            <?php echo $current_year; ?></h4>
+        <h4 class="text-2xl font-semibold text-center mb-4 text-green-600">Expense Summary for <?php echo $current_year; ?></h4>
         <div class="flex justify-center mb-8">
-            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+            <div class="bg-white shadow-md rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2">
                 <table class="table-auto w-full">
                     <thead>
-                        <tr class="bg-blue-100">
+                        <tr class="bg-blue-200 text-blue-800">
                             <th class="px-4 py-2">Month</th>
                             <th class="px-4 py-2">Total Amount</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($row_monthly_all = mysqli_fetch_assoc($result_monthly_all)) { ?>
-                            <tr>
+                            <tr class="hover:bg-blue-100">
                                 <td class="border px-4 py-2">
                                     <?php
                                     $month_number = $row_monthly_all['month'];
@@ -157,20 +156,19 @@
             </div>
         </div>
 
-
-        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary on basis of years</h4>
+        <h4 class="text-2xl font-semibold text-center mb-4 text-green-600">Expense Summary Based on Years</h4>
         <div class="flex justify-center mb-8">
-            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+            <div class="bg-white shadow-md rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2">
                 <table class="table-auto w-full">
                     <thead>
-                        <tr class="bg-blue-100">
+                        <tr class="bg-blue-200 text-blue-800">
                             <th class="px-4 py-2">Year</th>
                             <th class="px-4 py-2">Total Amount</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($row_yearly = mysqli_fetch_assoc($result_yearly)) { ?>
-                            <tr>
+                            <tr class="hover:bg-blue-100">
                                 <td class="border px-4 py-2"><?php echo $row_yearly['year']; ?></td>
                                 <td class="border px-4 py-2"><?php echo $row_yearly['total_amount']; ?></td>
                             </tr>
@@ -180,12 +178,12 @@
             </div>
         </div>
 
-        <h4 class="text-xl font-semibold text-center mb-4 text-green-600">Expense summary on basis of categories</h4>
+        <h4 class="text-2xl font-semibold text-center mb-4 text-green-600">Expense Summary Based on Categories</h4>
         <div class="flex justify-center mb-8">
-            <div class="bg-white shadow-md rounded-lg p-6 w-2/3">
+            <div class="bg-white shadow-md rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2">
                 <table class="table-auto w-full">
                     <thead>
-                        <tr class="bg-blue-100">
+                        <tr class="bg-blue-200 text-blue-800">
                             <th class="px-4 py-2">Category</th>
                             <th class="px-4 py-2">Total Amount</th>
                         </tr>
@@ -193,7 +191,7 @@
                     <tbody>
                         <?php mysqli_data_seek($result_category, 0); ?>
                         <?php while ($row_category = mysqli_fetch_assoc($result_category)) { ?>
-                            <tr>
+                            <tr class="hover:bg-blue-100">
                                 <td class="border px-4 py-2"><?php echo $row_category['category']; ?></td>
                                 <td class="border px-4 py-2"><?php echo $row_category['total_amount']; ?></td>
                             </tr>

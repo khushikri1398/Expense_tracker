@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense</title>
+    <script src="js/font.js"></script>
     <script src="tailwind.js"></script>
     <script src="js/script_main.js"></script>
-
 </head>
 
 <body class="bg-gray-100">
@@ -30,8 +30,8 @@
     $total = mysqli_num_rows($data);
     ?>
 
-    <div class="sort-filter-container text-center my-4 ">
-        <h2 class="text-2xl font-semibold mb-4">Displaying all Expenses</h2>
+    <div class="sort-filter-container text-center my-4">
+        <h2 class="text-3xl font-bold mb-4 text-purple-700">Displaying all Expenses</h2>
         <div class="inline-flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
             <select id="categoryFilter" onchange="filterCategory()" class="p-2 rounded border border-gray-300">
                 <option value="all">All Categories</option>
@@ -60,14 +60,14 @@
     if ($total != 0) {
         echo '<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 cards-container">';
         while ($result = mysqli_fetch_assoc($data)) {
-            echo "<div class='bg-white p-4 rounded-lg shadow-md expense-card' data-category='" . $result['category'] . "' data-amount='" . $result['amount'] . "' data-date='" . $result['date'] . "'>
-                    <h3 class='text-lg font-semibold mb-2 expense-category'>" . $result['category'] . "</h3>
-                    <p class='mb-2 expense-amount'>Amount:₹" . $result['amount'] . "</p>
-                    <p class='mb-2'>Description:" . $result['descr'] . "</p>
-                    <p class='mb-2 expense-date'>Date: " . $result['date'] . "</p>
+            echo "<div class='bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 expense-card' data-category='" . $result['category'] . "' data-amount='" . $result['amount'] . "' data-date='" . $result['date'] . "'>
+                    <h3 class='text-xl font-semibold mb-2 text-blue-600 flex items-center expense-category'><i class='fas fa-tags mr-2'></i>" . $result['category'] . "</h3>
+                    <p class='mb-2 text-green-600 flex items-center expense-amount'><i class='fas fa-rupee-sign mr-2'></i>₹" . $result['amount'] . "</p>
+                    <p class='mb-4 text-gray-700 flex items-center'><i class='fas fa-file-alt mr-2'></i>" . $result['descr'] . "</p>
+                    <p class='mb-4 text-gray-500 flex items-center expense-date'><i class='fas fa-calendar-alt mr-2'></i>" . $result['date'] . "</p>
                     <div class='flex space-x-2'>
-                        <a href='update_design.php?id=" . $result['id'] . "' class='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'>Update</a>
-                        <a href='delete.php?id=" . $result['id'] . "' class='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600' onclick='return checkdelete()'>Delete</a>
+                        <a href='update_design.php?id=" . $result['id'] . "' class='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 flex items-center'><i class='fas fa-edit mr-1'></i>Update</a>
+                        <a href='delete.php?id=" . $result['id'] . "' class='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 flex items-center' onclick='return checkdelete()'><i class='fas fa-trash-alt mr-1'></i>Delete</a>
                     </div>
                 </div>";
         }
