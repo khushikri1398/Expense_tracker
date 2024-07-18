@@ -60,7 +60,7 @@
     if ($total != 0) {
         echo '<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 cards-container">';
         while ($result = mysqli_fetch_assoc($data)) {
-            echo "<div class='bg-white p-6 rounded-2xl shadow-2xl transform transition duration-500 hover:scale-105 ' data-category='" . $result['category'] . "' data-amount='" . $result['amount'] . "' data-date='" . $result['date'] . "'>
+            echo "<div class='bg-white p-6 rounded-2xl shadow-2xl transform transition duration-500 hover:scale-105 expense-card' data-category='" . $result['category'] . "' data-amount='" . $result['amount'] . "' data-date='" . $result['date'] . "'>
                     <h3 class='text-xl font-semibold mb-2 text-blue-600 flex items-center expense-category'><i class='fas fa-tags mr-2'></i>" . $result['category'] . "</h3>
                     <p class='mb-2 text-green-600 flex items-center expense-amount'><i class='fas fa-rupee-sign mr-2'></i>₹" . $result['amount'] . "</p>
                     <p class='mb-4 text-gray-700 flex items-center'><i class='fas fa-file-alt mr-2'></i>" . $result['descr'] . "</p>
