@@ -30,3 +30,12 @@ Expense Tracker is designed to help individuals and businesses manage their fina
     
 - **IDE:**
   - https://code.visualstudio.com/download
+
+
+# Procedure to Run the Expense Tracker Project
+
+Download and Install XAMPP.
+Open XAMPP and start Apache and MySQL.
+Reach out to the directory where xampp is installed. Copy and paste the project folder in xampp/htdocs .
+Finally, open the project in your web browser.
+
