@@ -73,10 +73,11 @@
         }
         echo '</div>';
     } else {
-        echo "<p class='text-center'>No record Found</p>";
+        echo "<p class='text-center text-xl font-bold mb-4 text-red-700'>No record Found, Add your Expenses.
+        <button class='mt-2 text-white text-base bg-green-500 px-4 mx-2 py-2 rounded-md font-bold hover:bg-green-600 transition duration-300'><a href='expense_form.php'>Add</a></button>
+        </p>";
     }
     ?>
-
 
 </body>
 
