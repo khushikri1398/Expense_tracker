@@ -34,7 +34,7 @@ include("header.php");
                     </div>
                     <div class="input_field">
                         <label class="block text-sm font-medium text-gray-700">Description</label>
-                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" name="descr" required>
+                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" name="descr">
                     </div>
                     <div class="input_field">
                         <label class="block text-sm font-medium text-gray-700">Date</label>
@@ -69,7 +69,7 @@ if (isset($_POST['register'])) {
     $desc = $_POST['descr'];
     $date= $_POST['date'];
 
-    if ($category!= "" && $amt != ""  && $desc!="" && $date!=="") {
+    if ($category!= "" && $amt != ""  && $date!=="") {
         $query = "INSERT INTO expense (email,category,amount,descr,date) VALUES ('$userprofile','$category', '$amt', '$desc', '$date')";
         $data = mysqli_query($con, $query);
 
