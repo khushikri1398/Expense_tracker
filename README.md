@@ -14,6 +14,7 @@ Expense Tracker is designed to help individuals and businesses manage their fina
 - **Category-wise and date-wise expense summaries**
 - **Sorting and filtering functionality for expense tables**
 - **Responsive and user-friendly interface**
+- **Clear view of spending patterns. Understand where your money goes with easy-to-read graphs.**
 
 ## Technology Stack
 
